@@ -1,0 +1,31 @@
+.header {
+  color: $color-white;
+  height: 75vh;
+  position: relative;
+
+  @include media(lg-desk) {
+    height: 65vh;
+  }
+
+  background: linear-gradient(
+      to right,
+      rgba($color-anthrazit, 0.3),
+      rgba($color-anthrazit, 0.3)
+    ),
+    url(../images/FEND-Coffee-latte-art-3.jpg);
+  background-size: cover;
+
+  background-position: center;
+
+  &__text-box {
+    @include center-center;
+    text-align: center;
+  }
+  &__link-box {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}

@@ -1,0 +1,50 @@
+.footer {
+  text-align: left;
+  &__map {
+    background-color: $color-white;
+    color: $color-black;
+
+    &__title {
+      padding: 1.2rem 2.5rem 3.4rem 2.5rem;
+    }
+
+    &__img {
+      width: 100%;
+    }
+  }
+
+  &__black {
+    background-color: $color-black;
+    @include default-sec-padding;
+    color: $color-white;
+    display: flex;
+    flex-direction: column;
+    @include media(desk) {
+      flex-direction: row;
+    }
+  }
+
+  &__flex-item {
+    background-color: rosybrown;
+  }
+
+  &__table__flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__flex-item {
+      flex: 1 1 50%;
+    }
+  }
+
+  &__links__flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__flex-item {
+      flex: 1 1 50%;
+    }
+  }
+}

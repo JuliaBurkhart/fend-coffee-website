@@ -1,0 +1,84 @@
+//Default font styles
+
+@mixin roboto-900($size) {
+  font-weight: 900;
+  font-size: $size + rem;
+  line-height: 110%;
+  letter-spacing: 0;
+  text-decoration: none;
+}
+
+@mixin roboto-400($size) {
+  font-weight: 400;
+  font-size: $size + rem;
+  line-height: 130%;
+  font-style: normal;
+  text-decoration: none;
+}
+
+//Default section paddings
+
+@mixin default-sec-padding {
+  padding: 15.6% 6.5%;
+
+  @include media(tab) {
+    padding: 12.5rem 7%;
+  }
+}
+
+//Center/center für absolute positioning
+
+@mixin center-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+//MEDIA QUERYS
+/* 
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+--> tab
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+--> desk
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+--> lg-desk
+
+// Very large desktop devices (1920px and up)
+@media (min-width: 1920px) { ... } 
+--> xl-desk
+*/
+
+@mixin media($breakpoint) {
+  @if $breakpoint == tab {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desk {
+    @media only screen and (min-width: 992px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == lg-desk {
+    @media only screen and (min-width: 1200px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == xl-desk {
+    @media only screen and (min-width: 1920px) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,194 @@
+//SECTION info
+
+.info {
+  background-color: $color-white;
+  color: $color-black;
+  @include default-sec-padding;
+
+  &__img-1 {
+    width: calc(100% - 8.6rem);
+    margin-left: 8.6rem;
+
+    @include media(tab) {
+      width: calc(100% - 1rem);
+      margin-left: 1rem;
+    }
+  }
+
+  &__img-2 {
+    width: calc(100% - 8.6rem);
+    margin-right: 8.6rem;
+
+    @include media(tab) {
+      width: calc(100% - 1rem);
+      margin-right: 1rem;
+    }
+  }
+
+  &__flex-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__flex-item {
+    display: block;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100%;
+  }
+}
+@include media(tab) {
+  .info__flex-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .info__flex-container:last-child {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .info__flex-item {
+    flex-basis: 50%;
+  }
+}
+
+//SECTION sorten
+
+.sorten {
+  background-color: $color-anthrazit;
+  color: $color-white;
+  @include default-sec-padding;
+
+  &__flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @include media(desk) {
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__flex-item {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: calc(50% - 1.5rem);
+    margin: 2rem 0.75rem;
+
+    @include media(desk) {
+      flex-basis: calc(25% - 1.5rem);
+    }
+  }
+
+  &__img {
+    width: 90%;
+  }
+
+  &__img-box {
+    background-color: $color-white;
+    text-align: center;
+  }
+}
+
+//SECTION herkunft
+
+.herkunft {
+  position: relative;
+  height: 50vh;
+  color: $color-white;
+  background-image: linear-gradient(
+      to right,
+      rgba($color-anthrazit, 0.5),
+      rgba($color-anthrazit, 0.5)
+    ),
+    url(../images/FEND-Coffee-bags-2.jpg);
+  background-size: cover;
+  background-position: right;
+  text-align: center;
+  @include default-sec-padding;
+  &__text-box {
+    @include center-center;
+
+    width: 24.1rem;
+    @include media(lg-desk) {
+      width: 30.6rem;
+    }
+  }
+
+  &__link {
+    color: $color-white;
+    text-decoration: none;
+    font-size: $default-font-size;
+    font-style: normal;
+    font-weight: 400;
+    line-height: $default-line-height;
+  }
+}
+
+//SECTION inhalt
+
+.inhalt {
+  background-color: $color-white;
+  color: $color-black;
+  @include default-sec-padding;
+
+  &__flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include media(tab) {
+      flex-direction: row;
+    }
+  }
+
+  &__flex-item-big {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @include media(tab) {
+      flex: 1 1 50%;
+      flex-direction: column;
+    }
+  }
+
+  &__flex-item {
+    background-color: purple;
+    height: 123px;
+    width: 100%;
+    margin: 1.5rem;
+
+    @include media(tab) {
+      margin: 4.8rem;
+      width: auto;
+      height: 100px; //nur zum testen!
+    }
+  }
+
+  &__img {
+    display: block;
+    width: calc(100% - 10rem);
+    height: auto;
+    margin: 0 5rem;
+    /*   height: 25.7rem;
+    width: 19.4rem;
+    margin: 0 auto; */
+  }
+}
+
+//Tabelle
+
+.table {
+  &__flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__flex-item {
+    flex: 1 1 50%;
+  }
+}

@@ -1,21 +1,218 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index Page</title>
+    <title>FEND Coffee Website</title>
     <link rel="stylesheet" href="css/main.scss" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Oregano"
-      rel="stylesheet"
-    />
   </head>
   <body>
-    <h1>Hello World!</h1>
-    <main>
-      <a href="./my-subpage/index.html">Link to Subpage</a>
-      <div>Home</div>
-    </main>
-    <script src="js/index.js"></script>
+    <header class="header">
+      <div class="header__text-box">
+        <h1 class="h1">
+          <span class="h1-main">Rustica</span>
+          <span class="h1-sub">Bio und Fair seit 1991</span>
+        </h1>
+      </div>
+      <div class="header__link-box">
+        <a href="cafe.html" class="button-dark">zum Shop</a>
+      </div>
+    </header>
+
+    <section class="info">
+      <div class="info__flex-container u-margin-bottom-medium">
+        <div class="info__flex-item">
+          <h2 class="h2 u-margin-bottom-small">Rösterei & Café</h2>
+
+          <p class="paragraph u-margin-bottom-small">
+            Kaffee aus Kiel, direkt gehandelt und geröstet in der eigenen
+            Rösterei, serviert im gemütlichen Café in der Innenstadt.
+          </p>
+          <div class="table__flex-container u-margin-bottom-small">
+            <div class="table__flex-item">
+              <p class="paragraph">Komm uns besuchen!</p>
+              <p class="paragraph">Fraunhoferstr. 13, Kiel</p>
+            </div>
+            <div class="table__flex-item">
+              <p class="paragraph">Mo – Fr 8–18 Uhr</p>
+              <p class="paragraph">Sa 11–18 Uhr</p>
+            </div>
+          </div>
+        </div>
+        <div class="info__flex-item">
+          <img
+            class="info__img-1"
+            src="images/FEND-Coffee-shop.jpg"
+            alt="Die Innenräume des Cafés in Kiel"
+          />
+        </div>
+      </div>
+      <div class="info__flex-container">
+        <div class="info__flex-item">
+          <h2 class="h2 u-margin-bottom-small">Bio und Fair</h2>
+          <p class="paragraph u-margin-bottom-small">
+            Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und
+            Konsonantien leben die Blindtexte. Weit hinten, hinter den
+            Wortbergen, fern der Länder Vokalien und Konsonantien leben die
+            Blindtexte. Und das alles in bester Bio Qualität
+          </p>
+        </div>
+        <div class="info__flex-item">
+          <img
+            class="info__img-2"
+            src="images/FEND-coffee-plant.jpg"
+            alt="Foto einer Kaffee-Pflanze"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="sorten">
+      <h2 class="h2 u-margin-bottom-small">
+        Entdecke unsere <br />
+        Kaffee Sorten
+      </h2>
+      <div class="sorten__flex-container">
+        <div class="sorten__flex-item">
+          <div class="sorten__img-box u-margin-bottom-small">
+            <img
+              class="sorten__img"
+              src="images/FEND_Coffee_Costa-Rica 2.png"
+              alt="Verpackung der Kaffeesorte Costa Rica"
+            />
+          </div>
+
+          <h4 class="h4">Costa Rica</h4>
+          <p class="paragraph price">6,90 - 26,90</p>
+          <div class="sorten__icons">ICON ICON ICON</div>
+        </div>
+
+        <div class="sorten__flex-item">
+          <div class="sorten__img-box u-margin-bottom-small">
+            <img
+              class="sorten__img"
+              src="images/FEND_Coffee_Costa-Rica 2.png"
+              alt="Verpackung der Kaffeesorte Costa Rica"
+            />
+          </div>
+
+          <h4 class="h4">Costa Rica</h4>
+          <p class="paragraph price">6,90 - 26,90</p>
+          <div class="sorten__icons">ICON ICON ICON</div>
+        </div>
+
+        <div class="sorten__flex-item">
+          <div class="sorten__img-box u-margin-bottom-small">
+            <img
+              class="sorten__img"
+              src="images/FEND_Coffee_Costa-Rica 2.png"
+              alt="Verpackung der Kaffeesorte Costa Rica"
+            />
+          </div>
+
+          <h4 class="h4">Costa Rica</h4>
+          <p class="paragraph price">6,90 - 26,90</p>
+          <div class="sorten__icons">ICON ICON ICON</div>
+        </div>
+
+        <div class="sorten__flex-item">
+          <div class="sorten__img-box u-margin-bottom-small">
+            <img
+              class="sorten__img"
+              src="images/FEND_Coffee_Costa-Rica 2.png"
+              alt="Verpackung der Kaffeesorte Costa Rica"
+            />
+          </div>
+
+          <h4 class="h4">Costa Rica</h4>
+          <p class="paragraph price">6,90 - 26,90</p>
+          <div class="sorten__icons">ICON ICON</div>
+        </div>
+      </div>
+      <div class="u-align-center u-margin-top-small">
+        <a href="#" class="button-dark button-dark__border-white"
+          >alle Produkte</a
+        >
+      </div>
+    </section>
+
+    <section class="herkunft">
+      <div class="herkunft__text-box">
+        <h3 class="h3 u-margin-bottom-small">Herkunft</h3>
+        <p class="paragraph paragraph-white">
+          Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und
+          Konsonantien leben die Blindtexte. Und das alles in bester Bio
+          Qualität
+        </p>
+        <div class="u-margin-top-small">
+          <a class="herkunft__link" href="#">mehr</a>
+        </div>
+      </div>
+    </section>
+    <section class="inhalt">
+      <h2 class="h2 u-margin-bottom-medium u-align-center">Das steckt drin</h2>
+      <div class="inhalt__flex-container">
+        <div class="inhalt__flex-item-big u-padding-bottom-big">
+          <img
+            class="inhalt__img"
+            src="images/FEND_Coffee_Costa-Rica 2.png"
+            alt="Verpackung der Kaffeesorte Costa Rica"
+          />
+        </div>
+        <div class="inhalt__flex-item-big">
+          <div class="inhalt__flex-item"></div>
+          <div class="inhalt__flex-item"></div>
+          <div class="inhalt__flex-item"></div>
+        </div>
+      </div>
+      <div class="u-align-center u-margin-top-small">
+        <a href="#" class="button-dark">zum Shop</a>
+      </div>
+    </section>
   </body>
+  <footer class="footer">
+    <div class="footer__map">
+      <h2 class="h2 footer__map__title">Komm vorbei</h2>
+      <img
+        class="footer__map__img"
+        src="images/map.jpg"
+        alt="Location des Cafés, auf einer Karte angezeigt"
+      />
+    </div>
+    <div class="footer__black">
+      <div class="footer__flex-item">
+        <div class="icon-box">ICON</div>
+        <h5 class="h5">Rustica</h5>
+        <h4 class="h4 u-margin-bottom-medium">Café & Rösterei</h4>
+      </div>
+
+      <div class="footer__flex-item">
+        <div class="footer__table__flex-container u-margin-bottom-small">
+          <div class="footer__table__flex-item">
+            <p class="paragraph">Komm uns besuchen!</p>
+            <p class="paragraph">Fraunhoferstr. 13, Kiel</p>
+          </div>
+          <div class="footer__table__flex-item">
+            <p class="paragraph">Mo – Fr 8–18 Uhr</p>
+            <p class="paragraph">Sa 11–18 Uhr</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__flex-item">
+        <div class="footer__links__flex-container u-margin-bottom-small">
+          <div class="footer__links__flex-item">
+            <p class="paragraph">Impressum</p>
+            <p class="paragraph">Datenschutz</p>
+          </div>
+
+          <div class="footer__links__flex-item">
+            <p class="paragraph">Café</p>
+            <p class="paragraph">Shop</p>
+            <p class="paragraph">Herkunft</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 </html>

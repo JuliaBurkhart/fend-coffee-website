@@ -1,0 +1,93 @@
+.h1 {
+  font-style: normal;
+
+  &-main {
+    @include roboto-900(6.4);
+    display: block;
+
+    @include media(tab) {
+      @include roboto-900(7.4);
+    }
+    @include media(desk) {
+      @include roboto-900(8.4);
+    }
+
+    @include media(lg-desk) {
+      @include roboto-900(9.6);
+    }
+  }
+
+  &-sub {
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+    display: block;
+  }
+}
+
+.h2 {
+  @include roboto-900(3.6);
+
+  @include media(tab) {
+    @include roboto-900(4);
+  }
+  @include media(desk) {
+    @include roboto-900(4.4);
+  }
+
+  @include media(lg-desk) {
+    @include roboto-900(4.8);
+  }
+}
+
+.h3 {
+  @include roboto-900(3.2);
+
+  @include media(tab) {
+    @include roboto-900(3.6);
+  }
+  @include media(desk) {
+    @include roboto-900(3.9);
+  }
+  @include media(lg-desk) {
+    @include roboto-900(4.2);
+  }
+}
+
+.h4 {
+  font-size: 1.8rem;
+  line-height: 2.1rem;
+  font-style: normal;
+  font-weight: 400;
+}
+
+//Footer
+.h5 {
+  @include roboto-900(2.4);
+
+  @include media(tab) {
+    @include roboto-900(3);
+  }
+  @include media(desk) {
+    @include roboto-900(3.6);
+  }
+  @include media(lg-desk) {
+    @include roboto-900(4.2);
+  }
+}
+
+.paragraph {
+  @include roboto-400(1.4);
+
+  @include media(tab) {
+    @include roboto-400(1.6);
+  }
+
+  @include media(lg-desk) {
+    @include roboto-400(1.8);
+  }
+}
+
+.price {
+  color: $color-medium-grey;
+}
