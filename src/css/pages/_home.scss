@@ -24,6 +24,17 @@
       margin-right: 1rem;
     }
   }
+  &__text-l {
+    @include media(tab) {
+      padding-right: 10.5rem;
+    }
+  }
+
+  &__text-r {
+    @include media(tab) {
+      padding-left: 10.5rem;
+    }
+  }
 
   &__flex-container {
     width: 100%;

@@ -1,5 +1,6 @@
 .footer {
-  text-align: left;
+  //Map in Footer
+
   &__map {
     background-color: $color-white;
     color: $color-black;
@@ -7,44 +8,84 @@
     &__title {
       padding: 1.2rem 2.5rem 3.4rem 2.5rem;
     }
+  }
 
-    &__img {
-      width: 100%;
+  .map-iframe {
+    border: none;
+    width: 100%;
+    height: 34.6vh;
+    @include media(desk) {
+      height: 46vh;
     }
   }
+
+  //Black Footer Section
 
   &__black {
     background-color: $color-black;
     @include default-sec-padding;
     color: $color-white;
+  }
+
+  //Flexboxes for Footer-Content
+
+  &__flex-grid {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     @include media(desk) {
-      flex-direction: row;
+      flex-wrap: nowrap;
     }
   }
 
-  &__flex-item {
-    background-color: rosybrown;
+  &__big-item {
+    order: 1;
+    flex-grow: 2;
+    flex-basis: 100%;
+    height: 124px;
   }
-
-  &__table__flex-container {
+  &__table-item {
+    order: 2;
+    flex-grow: 2;
+    flex-basis: 100%;
+    height: 124px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    flex-wrap: nowrap;
+    @include media(desk) {
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
 
-    &__flex-item {
-      flex: 1 1 50%;
+    &-small {
+      flex-grow: 1;
+      flex-basis: 50%;
     }
   }
 
-  &__links__flex-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  &__links-item-1 {
+    order: 3;
+    flex-grow: 1;
+    flex-basis: 50%;
+    width: 124px;
+    height: 124px;
 
-    &__flex-item {
-      flex: 1 1 50%;
+    @include media(desk) {
+      order: 4;
+      flex-grow: 2;
+      flex-basis: 100%;
+    }
+  }
+  &__links-item-2 {
+    order: 4;
+    flex-grow: 1;
+    flex-basis: 50%;
+    width: 124px;
+    height: 124px;
+
+    @include media(desk) {
+      order: 3;
+      flex-grow: 2;
+      flex-basis: 100%;
     }
   }
 }
