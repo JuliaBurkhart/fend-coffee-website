@@ -1,5 +1,29 @@
 // MOBIL Navbar zum ausklappen
 
+@keyframes moveInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveOutToRight {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(100rem);
+  }
+}
+
 .mobilnav {
   &__close {
     display: none;
@@ -46,6 +70,7 @@
 
   &__checkbox:checked ~ &__content {
     z-index: 1000;
+    animation: moveInFromRight 0.5s;
   }
 
   &__checkbox:checked ~ &__close {
@@ -82,10 +107,13 @@
   flex-direction: row;
   flex-wrap: nowrap;
   &__logo {
-    width: 35px;
-    height: 35px;
     flex: 0;
-    background-color: lightskyblue;
+
+    &__svg {
+      width: 3.5rem;
+      height: 3.5rem;
+      filter: invert(100%);
+    }
   }
 
   &__links {
