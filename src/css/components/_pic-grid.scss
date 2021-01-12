@@ -1,0 +1,61 @@
+//oic-grid auf der Unterseite cafe.html
+
+.pic-grid {
+  column-count: 2;
+  column-gap: 1.6rem;
+}
+
+.grid__item {
+  display: inline-block;
+  margin: 0 0 1.3rem;
+  width: 100%;
+}
+
+.grid__item img {
+  max-width: 100%;
+  height: auto;
+}
+
+@include media(desk) {
+  .pic-grid {
+    height: calc(100vw / 2);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+  }
+
+  .grid__item {
+    display: inline-block;
+    width: 24.03%;
+    margin-bottom: 2rem;
+
+    &-1 {
+      order: 1;
+    }
+
+    &-2 {
+      order: 5;
+    }
+    &-3 {
+      order: 6;
+    }
+    &-4 {
+      order: 2;
+    }
+    &-5 {
+      order: 3;
+    }
+    &-6 {
+      order: 8;
+    }
+    &-7 {
+      order: 7;
+    }
+    &-8 {
+      order: 4;
+    }
+  }
+}

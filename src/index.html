@@ -8,38 +8,7 @@
   </head>
   <body>
     <header class="header">
-      <div class="navbar">
-        <div class="navbar__logo">
-          <img class="navbar__logo__svg" src="images/rustica-logo.svg" alt="" />
-        </div>
-
-        <input type="checkbox" class="navbar__checkbox" id="navi-toggle" />
-        <label for="navi-toggle" class="navbar__button">
-          <span class="mobilnav__icon"
-            ><img src="images/burger-menue-white.svg" alt=""
-          /></span>
-        </label>
-
-        <label for="navi-toggle" class="navbar__close">
-          <span class="mobilnav__icon"
-            ><img src="images/burger-close-white.svg" alt=""
-          /></span>
-        </label>
-
-        <div class="navbar__content">
-          <ul class="navbar__ul">
-            <li class="navbar__li">
-              <a href="#" class="navbar__a">das Café</a>
-            </li>
-            <li class="navbar__li">
-              <a href="#" class="navbar__a">Herkunft</a>
-            </li>
-            <li class="navbar__li">
-              <a href="#" class="navbar__a">Shop</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <include src="navbar.html"></include>
 
       <div class="header__text-box">
         <h1 class="h1">
@@ -219,67 +188,7 @@
           <a href="#" class="button-dark">zum Shop</a>
         </div>
       </div>
-
-      <!-- Die FLEXBOX VARIANTE -->
-
-      <!-- <h2 class="h2 u-margin-bottom-medium u-align-center">Das steckt drin</h2>
-      <div class="inhalt__flex-container">
-        <div class="inhalt__flex-item-big u-padding-bottom-big">
-          <img
-            class="inhalt__img"
-            src="images/coffee-costa-rica.png"
-            alt="Verpackung der Kaffeesorte Costa Rica"
-          />
-        </div>
-        <div class="inhalt__flex-item-big">
-          <div class="inhalt__flex-item"><img class="inhalt__flex-item__svg" src="images/icon-kaffee-tasse.svg" alt=""><div class="inhalt__flex-item__text"><p class="paragraph">Bester<br>Geschmack</p></div></div>
-          <div class="inhalt__flex-item"><img class="inhalt__flex-item__svg" src="images/icon-kaffee-schaufel.svg" alt=""><div class="inhalt__flex-item__text"><p class="paragraph">Fair<br>gehandelt</p></div></div>
-          <div class="inhalt__flex-item"><img class="inhalt__flex-item__svg" src="images/icon-kaffee-pflanze.svg" alt=""><div class="inhalt__flex-item__text"><p class="paragraph">Bio<br>Qualität</p></div></div>
-        </div>
-      </div>
-      <div class="u-align-center u-margin-top-small">
-        <a href="#" class="button-dark">zum Shop</a>
-      </div> -->
     </section>
   </body>
-  <footer class="footer">
-    <div class="footer__map">
-      <h2 class="h2 footer__map__title">Komm vorbei</h2>
-      <iframe
-        class="map-iframe"
-        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4651.692307145534!2d10.1193093!3d54.3420273!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b2560c505797eb%3A0xf549da0f074162a9!2sFraunhoferstra%C3%9Fe%2013%2C%2024118%20Kiel!5e0!3m2!1sde!2sde!4v1610030848553!5m2!1sde!2sde"
-      ></iframe>
-    </div>
-    <div class="footer__black">
-      <div class="icon-box">
-        <img class="footer__logo__svg" src="images/rustica-logo.svg" alt="" />
-      </div>
-      <div class="footer__flex-grid">
-        <div class="footer__big-item">
-          <h5 class="h5 u-margin-top-small">Rustica</h5>
-          <h4 class="h4">Café & Rösterei</h4>
-        </div>
-        <div class="footer__table-item">
-          <div class="footer__table-item-small">
-            <p class="paragraph">Komm uns besuchen!</p>
-            <p class="paragraph">Fraunhoferstr. 13, Kiel</p>
-          </div>
-          <div class="footer__table-item-small">
-            <p class="paragraph">Mo – Fr 8–18 Uhr</p>
-            <p class="paragraph">Sa 11–18 Uhr</p>
-          </div>
-        </div>
-
-        <div class="footer__links-item-1">
-          <p class="paragraph">Impressum</p>
-          <p class="paragraph">Datenschutz</p>
-        </div>
-        <div class="footer__links-item-2">
-          <p class="paragraph">Café</p>
-          <p class="paragraph">Shop</p>
-          <p class="paragraph">Herkunft</p>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <include src="footer.html"></include>
 </html>
