@@ -1,4 +1,4 @@
-//oic-grid auf der Unterseite cafe.html
+//pic-grid auf der Unterseite cafe.html
 
 .pic-grid {
   column-count: 2;
@@ -18,7 +18,7 @@
 
 @include media(desk) {
   .pic-grid {
-    height: calc(100vw / 2);
+    height: calc(100vw / 2.1);
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;

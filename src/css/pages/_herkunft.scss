@@ -1,4 +1,4 @@
-.cafe__header {
+.herkunft__header {
   width: 100%;
   height: 50vh;
 
@@ -10,22 +10,27 @@
       rgba($color-anthrazit, 0.3),
       rgba($color-anthrazit, 0.3)
     ),
-    url(../images/coffee-shop.jpg);
+    url(../images/coffee-beans.jpg);
   background-size: cover;
 
   background-position: center;
 }
 
-.cafe__info {
-  width: 100%;
-  @include media(desk) {
-    display: block;
-    width: 50%;
-    margin: 0 auto;
-  }
-}
-.cafe__pic-grid {
+.ursprung {
   background-color: $color-white;
   color: $color-black;
   @include default-sec-padding;
+
+  &__flex-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__flex-item {
+    display: block;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100%;
+  }
 }
