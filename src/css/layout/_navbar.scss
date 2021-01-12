@@ -1,29 +1,152 @@
-// MOBIL Navbar zum ausklappen
+//NAVBAR Mobile
 
-@keyframes moveInFromRight {
-  0% {
-    opacity: 0;
-    transform: translateX(100rem);
+.navbar {
+  position: fixed;
+  z-index: 1;
+
+  &__checkbox {
+    display: none;
   }
 
-  100% {
-    opacity: 1;
-    transform: translate(0);
+  &__close {
+    display: none;
   }
-}
 
-@keyframes moveOutToRight {
-  0% {
-    opacity: 0;
+  &__logo {
+    margin-top: 1rem;
+    margin-left: 2.4rem;
+    margin-right: auto;
+    &__svg {
+      width: 3.5rem;
+      height: 3.5rem;
+      filter: invert(100%);
+    }
+  }
+
+  &__ul {
+    margin-left: 6rem;
+  }
+  &__li {
+    padding: 1rem;
+    list-style: none;
+  }
+
+  &__a {
+    @include roboto-900(3.2);
+    color: $color-white;
+    position: relative;
+    font-style: normal;
+  }
+
+  &__button {
+    position: fixed;
+    z-index: 100;
+    top: 2.1rem;
+    right: 2.55rem;
+    width: 2.5rem;
+    height: 1.5rem;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  &__content {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    color: $color-white;
+    background-color: $color-black;
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    transition: transform 0.5s;
+  }
+
+  //CHECKBOX checked bewirkt ausgeklappte Navbar
+
+  &__checkbox:checked ~ &__content {
     transform: translateX(0);
+    z-index: 1000;
   }
 
-  100% {
-    opacity: 1;
-    transform: translate(100rem);
+  &__checkbox:checked ~ &__close {
+    display: inline-block;
+    position: fixed;
+    top: 1.9rem;
+    right: 2.65rem;
+    width: 2.5rem;
+    height: 1.5rem;
+    color: white;
+    cursor: pointer;
+    z-index: 1500;
   }
 }
 
+@include media(desk) {
+  .navbar {
+    &__logo {
+      margin-left: 10.3rem;
+    }
+    &__ul {
+      margin-right: 10rem;
+    }
+    &__li {
+      display: inline-block;
+      margin-left: 6.6rem;
+      list-style: none;
+    }
+
+    &__a {
+      font-family: inherit;
+      font-weight: 500;
+      font-size: 1.8rem;
+      line-height: 2.1rem;
+      color: $color-white;
+      position: relative;
+      font-style: normal;
+
+      &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        transition: all 0.4s;
+        border-bottom: 1px solid white;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+
+      &:active {
+        border-bottom: 1px solid white;
+      }
+    }
+    &__content {
+      height: 50px;
+      width: 100%;
+      background-color: transparent;
+      flex-direction: row;
+      justify-content: flex-end;
+      transform: none;
+      z-index: 1;
+    }
+
+    &__button {
+      display: none;
+    }
+  }
+}
+
+/* 
 .mobilnav {
   &__close {
     display: none;
@@ -172,3 +295,4 @@
     }
   }
 }
+ */

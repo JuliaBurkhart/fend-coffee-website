@@ -58,6 +58,12 @@
 */
 
 @mixin media($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (min-width: 150px) {
+      @content;
+    }
+  }
+
   @if $breakpoint == tab {
     @media only screen and (min-width: 768px) {
       @content;
