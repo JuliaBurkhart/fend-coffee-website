@@ -1,33 +1,9 @@
 .footer {
-  //Map in Footer
+  background-color: $color-black;
+  @include default-sec-padding;
+  color: $color-white;
 
-  &__map {
-    background-color: $color-white;
-    color: $color-black;
-
-    &__title {
-      padding: 1.2rem 2.5rem 3.4rem 2.5rem;
-    }
-  }
-
-  .map-iframe {
-    border: none;
-    width: 100%;
-    height: 34.6vh;
-    @include media(desk) {
-      height: 46vh;
-    }
-  }
-
-  //Black Footer Section
-
-  &__black {
-    background-color: $color-black;
-    @include default-sec-padding;
-    color: $color-white;
-  }
-
-  //Flexboxes for Footer-Content
+  //Flexboxes Footer-Content
 
   &__logo__svg {
     width: 3.5rem;

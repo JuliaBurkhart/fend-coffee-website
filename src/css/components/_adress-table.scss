@@ -1,0 +1,13 @@
+//TABLE mit Adresse und Öffnungszeiten
+
+.table {
+  &__flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__flex-item {
+    flex: 1 1 50%;
+  }
+}

@@ -7,13 +7,44 @@
     <link rel="stylesheet" href="css/main.scss" />
   </head>
   <body>
-    <header class="cafe__header">
-      <include src="navbar.html"></include>
+    <header class="subpage__header header__cafe">
+      <div class="navbar">
+        <div class="navbar__logo">
+          <img class="navbar__logo__svg" src="images/rustica-logo.svg" alt="" />
+        </div>
+
+        <input type="checkbox" class="navbar__checkbox" id="navi-toggle" />
+        <label for="navi-toggle" class="navbar__button">
+          <span class="mobilnav__icon"
+            ><img src="images/burger-menue-white.svg" alt=""
+          /></span>
+        </label>
+
+        <label for="navi-toggle" class="navbar__close">
+          <span class="mobilnav__icon"
+            ><img src="images/burger-close-white.svg" alt=""
+          /></span>
+        </label>
+
+        <div class="navbar__content">
+          <ul class="navbar__ul">
+            <li class="navbar__li">
+              <a href="cafe.html" class="navbar__a navbar__onpage">das Café</a>
+            </li>
+            <li class="navbar__li">
+              <a href="herkunft.html" class="navbar__a">Herkunft</a>
+            </li>
+            <li class="navbar__li">
+              <a href="#" class="navbar__a">Shop</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </header>
 
-    <section class="info">
-      <div class="info__flex-container">
-        <div class="info__flex-item info__text-l">
+    <section class="white-sec">
+      <div class="text-pic__flex-container">
+        <div class="text-pic__flex-item text-pic__text-l">
           <h2 class="h2 u-margin-bottom-small">Rösterei & Café</h2>
 
           <p class="paragraph u-margin-bottom-small">
@@ -32,15 +63,15 @@
           </div>
         </div>
 
-        <div class="info__flex-item">
+        <div class="text-pic__flex-item">
           <img
-            class="info__img-1"
+            class="text-pic__img-r"
             src="images/coffee-machine-2.jpg"
             alt="Foto der Kaffee Maschine des Cafés"
           />
         </div>
       </div>
-      <div class="cafe__info">
+      <div class="text-pic__textonly">
         <h2 class="h3 u-margin-bottom-small">Frisches Gebäck von nebenan</h2>
         <p class="paragraph u-margin-bottom-small">
           Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es
@@ -56,7 +87,7 @@
       </div>
     </section>
 
-    <section class="cafe__pic-grid">
+    <section class="cafe__pic-grid white-sec">
       <div class="pic-grid">
         <div class="grid__item grid__item-1">
           <img class="" src="images/danish.jpg" alt="" />
@@ -90,6 +121,7 @@
         </div>
       </div>
     </section>
+    <include src="map.html"></include>
   </body>
   <include src="footer.html"></include>
 </html>

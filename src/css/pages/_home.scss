@@ -1,70 +1,4 @@
-//SECTION info
-
-.info {
-  background-color: $color-white;
-  color: $color-black;
-  @include default-sec-padding;
-
-  &__img-1 {
-    width: calc(100% - 8.6rem);
-    margin-left: 8.6rem;
-
-    @include media(tab) {
-      width: calc(100% - 1rem);
-      margin-left: 1rem;
-    }
-  }
-
-  &__img-2 {
-    width: calc(100% - 8.6rem);
-    margin-right: 8.6rem;
-
-    @include media(tab) {
-      width: calc(100% - 1rem);
-      margin-right: 1rem;
-    }
-  }
-  &__text-l {
-    @include media(tab) {
-      padding-right: 10.5rem;
-    }
-  }
-
-  &__text-r {
-    @include media(tab) {
-      padding-left: 10.5rem;
-    }
-  }
-
-  &__flex-container {
-    margin-bottom: 3.4rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__flex-item {
-    display: block;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 100%;
-  }
-}
-@include media(tab) {
-  .info__flex-container {
-    margin-bottom: 13rem;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .info__flex-container:last-child {
-    flex-direction: row-reverse;
-    justify-content: space-between;
-  }
-
-  .info__flex-item {
-    flex-basis: 50%;
-  }
-}
+//index.html section backgrounds main layouts
 
 //SECTION sorten
 
@@ -103,13 +37,31 @@
     background-color: $color-white;
     text-align: center;
   }
+
+  &__icon {
+    margin-top: 0.5rem;
+    margin-right: 0.8rem;
+    width: 1.2rem;
+    height: auto;
+    filter: brightness(700%) contrast(200%);
+
+    @include media(desk) {
+      margin-top: 0.8rem;
+      margin-right: 1rem;
+      width: 1.7rem;
+    }
+  }
 }
 
 //SECTION herkunft
 
 .herkunft {
-  position: relative;
   height: 50vh;
+  min-height: 33.2rem;
+  @include default-sec-padding;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: $color-white;
   background-image: linear-gradient(
       to right,
@@ -120,11 +72,11 @@
   background-size: cover;
   background-position: right;
   text-align: center;
-  @include default-sec-padding;
-  &__text-box {
-    @include center-center;
 
+  &__text-box {
+    padding: 8.7rem 0;
     width: 24.1rem;
+
     @include media(lg-desk) {
       width: 30.6rem;
     }
@@ -133,27 +85,5 @@
   &__link {
     color: $color-white;
     text-decoration: none;
-  }
-}
-
-//SECTION inhalt
-
-.inhalt {
-  background-color: $color-white;
-  color: $color-black;
-  @include default-sec-padding;
-}
-
-//Tabelle
-
-.table {
-  &__flex-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  &__flex-item {
-    flex: 1 1 50%;
   }
 }

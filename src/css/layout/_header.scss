@@ -1,3 +1,5 @@
+//HEADER Mainpage
+
 .header {
   color: $color-white;
   height: 75vh;
@@ -14,7 +16,6 @@
     ),
     url(../images/coffee-latte-art-3.jpg);
   background-size: cover;
-
   background-position: center;
 
   &__text-box {
@@ -27,5 +28,40 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+  }
+}
+
+//HEADER Subpages
+
+.subpage__header {
+  width: 100%;
+  height: 50vh;
+
+  @include media(desk) {
+    height: 65vh;
+  }
+}
+
+.header {
+  &__cafe {
+    background: linear-gradient(
+        to right,
+        rgba($color-anthrazit, 0.3),
+        rgba($color-anthrazit, 0.3)
+      ),
+      url(../images/coffee-shop.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__herkunft {
+    background: linear-gradient(
+        to right,
+        rgba($color-anthrazit, 0.3),
+        rgba($color-anthrazit, 0.3)
+      ),
+      url(../images/coffee-beans.jpg);
+    background-size: cover;
+    background-position: center;
   }
 }

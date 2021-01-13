@@ -1,0 +1,7 @@
+//Main Section styles (Background, Colors, Padding)
+
+.white-sec {
+  background-color: $color-white;
+  color: $color-black;
+  @include default-sec-padding;
+}

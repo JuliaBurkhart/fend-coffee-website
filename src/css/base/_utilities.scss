@@ -1,3 +1,9 @@
+.u-row-reverse {
+  @include media(tab) {
+    flex-direction: row-reverse !important;
+  }
+}
+
 .u-margin-bottom-small {
   margin-bottom: 2rem;
 }

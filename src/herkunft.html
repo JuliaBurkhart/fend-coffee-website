@@ -7,28 +7,66 @@
     <link rel="stylesheet" href="css/main.scss" />
   </head>
   <body>
-    <header class="herkunft__header">
-      <include src="navbar.html"></include>
+    <header class="subpage__header header__herkunft">
+      <div class="navbar">
+        <div class="navbar__logo">
+          <img class="navbar__logo__svg" src="images/rustica-logo.svg" alt="" />
+        </div>
+
+        <input type="checkbox" class="navbar__checkbox" id="navi-toggle" />
+        <label for="navi-toggle" class="navbar__button">
+          <span class="mobilnav__icon"
+            ><img src="images/burger-menue-white.svg" alt=""
+          /></span>
+        </label>
+
+        <label for="navi-toggle" class="navbar__close">
+          <span class="mobilnav__icon"
+            ><img src="images/burger-close-white.svg" alt=""
+          /></span>
+        </label>
+
+        <div class="navbar__content">
+          <ul class="navbar__ul">
+            <li class="navbar__li">
+              <a href="cafe.html" class="navbar__a">das Café</a>
+            </li>
+            <li class="navbar__li">
+              <a href="herkunft.html" class="navbar__a navbar__onpage"
+                >Herkunft</a
+              >
+            </li>
+            <li class="navbar__li">
+              <a href="#" class="navbar__a">Shop</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </header>
 
-    <section class="ursprung">
-      <div class="ursprung__flex-container">
-        <div class="ursprung__flex-item">
-          <h2 class="h2 u-margin-bottom-small">Der Ursprung von Rustica</h2>
+    <section class="white-sec">
+      <div class="text-pic__textonly">
+        <h2 class="h2 u-margin-bottom-small">Der Ursprung von Rustica</h2>
 
-          <p class="paragraph u-margin-bottom-small">
-            Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und
-            Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in
-            Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.
-            Ein kleines Bächlein namens Duden fließt durch ihren Ort und
-            versorgt sie mit den nötigen Regelialien. Es ist ein
-            paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund
-            fliegen.Nicht einmal von der allmächtigen Interpunktion werden die
-            Blindtexte beherrscht – ein geradezu unorthographisches Leben.
-          </p>
-        </div>
-        <div class="ursprung__flex-item">VIDEO</div>
-        <div class="ursprung__flex-item">
+        <p class="paragraph u-margin-bottom-medium">
+          Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und
+          Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in
+          Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.
+          Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt
+          sie mit den nötigen Regelialien. Es ist ein paradiesmatisches Land, in
+          dem einem gebratene Satzteile in den Mund fliegen.Nicht einmal von der
+          allmächtigen Interpunktion werden die Blindtexte beherrscht – ein
+          geradezu unorthographisches Leben.
+        </p>
+      </div>
+
+      <img
+        src="images/fake-video.svg"
+        class="video u-padding-bottom-big"
+        alt=""
+      />
+      <div class="text-pic__flex-container">
+        <div class="text-pic__flex-item text-pic__text-l">
           <h3 class="h3 u-margin-bottom-small">Die Anbaugebiete</h3>
           <p class="paragraph u-margin-bottom-small">
             Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und
@@ -41,11 +79,18 @@
             Blindtexte beherrscht – ein geradezu unorthographisches Leben.
           </p>
         </div>
-        <div class="ursprung__flex-item">
-          <img class="info__img-1" src="images/coffee-plant-2.jpg" alt="" />
-        </div>
 
-        <div class="ursprung__flex-item">
+        <div class="text-pic__flex-item">
+          <img
+            class="text-pic__img-r"
+            src="images/coffee-plant-2.jpg"
+            alt="Foto einer Kaffe Pflanze"
+          />
+        </div>
+      </div>
+
+      <div class="text-pic__flex-container u-row-reverse">
+        <div class="text-pic__flex-item text-pic__text-r">
           <h3 class="h3 u-margin-bottom-small">Das Wohl der Kaffeebauern</h3>
           <p class="paragraph u-margin-bottom-small">
             Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und
@@ -58,7 +103,14 @@
             Blindtexte beherrscht – ein geradezu unorthographisches Leben.
           </p>
         </div>
-        <div class="ursprung__flex-item">BILD COFFEE WORKER</div>
+
+        <div class="text-pic__flex-item">
+          <img
+            class="text-pic__img-l"
+            src="images/coffee-worker.jpg"
+            alt="Foto einer Arbeiterin zwischen Kaffee Pflanzen"
+          />
+        </div>
       </div>
     </section>
   </body>
