@@ -1,0 +1,81 @@
+.properties {
+  &__flex-section {
+    @include media(desk) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: center;
+    }
+  }
+
+  &__big-container {
+    display: block;
+    @include media(desk) {
+      display: flex;
+      width: 50%;
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__big-img {
+    display: block;
+    width: 65.4%;
+    margin: 0 auto;
+    @include media(desk) {
+      margin: 0 0 0 auto;
+      width: 80%;
+    }
+    @include media(lg-desk) {
+      margin: 0 0 0 auto;
+      width: 65.4%;
+    }
+
+    @media (min-width: 1600px) {
+      width: 44rem;
+    }
+  }
+
+  &__small-container {
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+    width: 32%;
+    margin: 4.4rem 0;
+
+    @include media(desk) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      width: 100%;
+      margin: 4.5rem 0 4.5rem 10rem;
+    }
+
+    @include media(lg-desk) {
+      margin: 4.5rem 0 4.5rem 19.5rem;
+    }
+  }
+
+  &__text {
+    margin-top: 2.4rem;
+    @include media(desk) {
+      text-align: left;
+      margin: 0 3rem;
+    }
+  }
+
+  &__button-container {
+    display: block;
+    text-align: center;
+    @include media(desk) {
+      text-align: left;
+      margin: 4.5rem 0 4.5rem 10rem;
+    }
+
+    @include media(lg-desk) {
+      margin: 4.5rem 0 4.5rem 19.5rem;
+    }
+  }
+}

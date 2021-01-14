@@ -19,7 +19,7 @@
 //Default section paddings
 
 @mixin default-sec-padding {
-  padding: 15.6% 6.5%;
+  padding: 15.6% 6.4%;
 
   @include media(tab) {
     padding: 6.25rem 7%;
