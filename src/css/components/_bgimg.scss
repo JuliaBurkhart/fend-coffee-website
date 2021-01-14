@@ -6,15 +6,38 @@
   justify-content: center;
   align-items: center;
   color: $color-white;
+
+  text-align: center;
   background-image: linear-gradient(
       to right,
       rgba($color-anthrazit, 0.5),
       rgba($color-anthrazit, 0.5)
     ),
-    url(../images/coffee-bags.jpg);
+    url(../images/mobile/coffee-bags-mobile.jpg);
   background-size: cover;
   background-position: right;
-  text-align: center;
+
+  @include media(tab) {
+    background-image: linear-gradient(
+        to right,
+        rgba($color-anthrazit, 0.5),
+        rgba($color-anthrazit, 0.5)
+      ),
+      url(../images/tab/coffee-bags-tab.jpg);
+    background-size: cover;
+    background-position: right;
+  }
+
+  @include media(desk) {
+    background-image: linear-gradient(
+        to right,
+        rgba($color-anthrazit, 0.5),
+        rgba($color-anthrazit, 0.5)
+      ),
+      url(../images/coffee-bags.jpg);
+    background-size: cover;
+    background-position: right;
+  }
 
   &__text-box {
     padding: 8.7rem 0;

@@ -5,18 +5,40 @@
   height: 75vh;
   position: relative;
 
-  @include media(lg-desk) {
-    height: 65vh;
-  }
-
   background: linear-gradient(
       to right,
       rgba($color-anthrazit, 0.3),
       rgba($color-anthrazit, 0.3)
     ),
-    url(../images/coffee-latte-art-3.jpg);
+    url(../images/mobile/coffee-latte-art-3-mobile.jpg);
   background-size: cover;
   background-position: center;
+
+  @include media(tab) {
+    background: linear-gradient(
+        to right,
+        rgba($color-anthrazit, 0.3),
+        rgba($color-anthrazit, 0.3)
+      ),
+      url(../images/tab/coffee-latte-art-3-tab.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  @include media(desk) {
+    background: linear-gradient(
+        to right,
+        rgba($color-anthrazit, 0.3),
+        rgba($color-anthrazit, 0.3)
+      ),
+      url(../images/coffee-latte-art-3.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  @include media(lg-desk) {
+    height: 65vh;
+  }
 
   &__text-box {
     @include center-center;
@@ -49,9 +71,30 @@
         rgba($color-anthrazit, 0.3),
         rgba($color-anthrazit, 0.3)
       ),
-      url(../images/coffee-shop.jpg);
+      url(../images/mobile/coffee-shop-mobile.jpg);
     background-size: cover;
     background-position: center;
+
+    @include media(tab) {
+      background: linear-gradient(
+          to right,
+          rgba($color-anthrazit, 0.3),
+          rgba($color-anthrazit, 0.3)
+        ),
+        url(../images/tab/coffee-shop-tab.jpg);
+      background-size: cover;
+      background-position: center;
+    }
+    @include media(desk) {
+      background: linear-gradient(
+          to right,
+          rgba($color-anthrazit, 0.3),
+          rgba($color-anthrazit, 0.3)
+        ),
+        url(../images/coffee-shop.jpg);
+      background-size: cover;
+      background-position: center;
+    }
   }
 
   &__herkunft {
@@ -60,8 +103,29 @@
         rgba($color-anthrazit, 0.3),
         rgba($color-anthrazit, 0.3)
       ),
-      url(../images/coffee-beans.jpg);
+      url(../images/mobile/coffee-beans-mobile.jpg);
     background-size: cover;
-    background-position: center;
+    background-position: right;
+
+    @include media(tab) {
+      background: linear-gradient(
+          to right,
+          rgba($color-anthrazit, 0.3),
+          rgba($color-anthrazit, 0.3)
+        ),
+        url(../images/tab/coffee-beans-tab.jpg);
+      background-size: cover;
+      background-position: right;
+    }
+    @include media(desk) {
+      background: linear-gradient(
+          to right,
+          rgba($color-anthrazit, 0.3),
+          rgba($color-anthrazit, 0.3)
+        ),
+        url(../images/coffee-beans.jpg);
+      background-size: cover;
+      background-position: right;
+    }
   }
 }
