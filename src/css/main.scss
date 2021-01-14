@@ -5,21 +5,20 @@
 @import "abstracts/variables";
 
 @import "base/base";
+@import "base/sections";
 @import "base/typography";
 @import "base/utilities";
-
-@import "pages/home";
-@import "pages/sections";
 
 @import "layout/header";
 @import "layout/footer";
 @import "layout/navbar";
 @import "layout/map";
-@import "layout/grid-on-index";
 
 @import "components/buttons";
 @import "components/text-pic-flex";
 @import "components/adress-table";
+@import "components/coffee-types";
+@import "components/bgimg";
+@import "components/properties-flex";
 @import "components/pic-grid";
 @import "components/video";
-@import "components/properties-flex";

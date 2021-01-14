@@ -1,0 +1,32 @@
+.origin {
+  height: 50vh;
+  min-height: 33.2rem;
+  @include default-sec-padding;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $color-white;
+  background-image: linear-gradient(
+      to right,
+      rgba($color-anthrazit, 0.5),
+      rgba($color-anthrazit, 0.5)
+    ),
+    url(../images/coffee-bags.jpg);
+  background-size: cover;
+  background-position: right;
+  text-align: center;
+
+  &__text-box {
+    padding: 8.7rem 0;
+    width: 24.1rem;
+
+    @include media(lg-desk) {
+      width: 30.6rem;
+    }
+  }
+
+  &__link {
+    color: $color-white;
+    text-decoration: none;
+  }
+}
