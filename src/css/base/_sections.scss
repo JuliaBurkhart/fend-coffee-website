@@ -5,3 +5,9 @@
   color: $color-black;
   @include default-sec-padding;
 }
+
+.impress {
+  @include media(tab) {
+    padding: 21rem 31rem 12rem 31rem;
+  }
+}

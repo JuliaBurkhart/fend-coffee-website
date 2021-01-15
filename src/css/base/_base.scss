@@ -17,3 +17,11 @@ html {
 body {
   font-family: "Roboto", sans-serif;
 }
+
+a,
+:visited,
+:active,
+:hover {
+  text-decoration: none;
+  color: inherit;
+}
