@@ -1,12 +1,10 @@
 .text-pic {
   &__flex-container {
-    margin-bottom: 3.4rem;
     width: 100%;
     display: flex;
     flex-direction: column;
 
-    @include media(tab) {
-      margin-bottom: 13rem;
+    @include media(desk) {
       flex-direction: row;
       justify-content: space-between;
     }
@@ -17,7 +15,11 @@
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 100%;
-    @include media(tab) {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include media(desk) {
       flex-basis: 50%;
     }
   }
@@ -26,7 +28,7 @@
     width: calc(100% - 8.6rem);
     margin-left: 8.6rem;
 
-    @include media(tab) {
+    @include media(desk) {
       width: calc(100% - 1rem);
       margin-left: 1rem;
     }
@@ -36,19 +38,19 @@
     width: calc(100% - 8.6rem);
     margin-right: 8.6rem;
 
-    @include media(tab) {
+    @include media(desk) {
       width: calc(100% - 1rem);
       margin-right: 1rem;
     }
   }
   &__text-l {
-    @include media(tab) {
+    @include media(desk) {
       padding-right: 10.5rem;
     }
   }
 
   &__text-r {
-    @include media(tab) {
+    @include media(desk) {
       padding-left: 10.5rem;
     }
   }
@@ -58,7 +60,8 @@
     @include media(desk) {
       display: block;
       width: 50%;
-      margin: 0 auto;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 }

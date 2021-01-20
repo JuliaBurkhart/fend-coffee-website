@@ -22,17 +22,16 @@
   padding: 15.6% 6.4%;
 
   @include media(tab) {
-    padding: 6.25rem 7%;
+    padding: 9rem 7%;
   }
-}
+  @include media(desk) {
+    padding: 12.5rem 7%;
+  }
 
-//Center/center für absolute positioning
-
-@mixin center-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  @media only screen and (min-width: 2000px) {
+    padding-left: calc((100vw - 2000px) / 2);
+    padding-right: calc((100vw - 2000px) / 2);
+  }
 }
 
 //MEDIA QUERYS

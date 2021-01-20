@@ -1,6 +1,9 @@
 .properties {
   &__flex-section {
+    margin-top: 3.5rem;
     @include media(desk) {
+      margin-top: 8.8rem;
+
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;

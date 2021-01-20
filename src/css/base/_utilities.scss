@@ -1,18 +1,23 @@
 .u-row-reverse {
-  @include media(tab) {
+  @include media(desk) {
     flex-direction: row-reverse !important;
   }
 }
 
 .u-margin-bottom-small {
   margin-bottom: 2rem;
+  @include media(tab) {
+    margin-bottom: 4rem;
+  }
 }
 
 .u-margin-bottom-medium {
-  margin-bottom: 3.4rem;
-
+  margin-bottom: 4rem;
   @include media(tab) {
-    margin-bottom: 8.8rem;
+    margin-bottom: 8.5rem;
+  }
+  @include media(desk) {
+    margin-bottom: 13rem;
   }
 }
 

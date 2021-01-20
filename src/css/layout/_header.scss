@@ -39,17 +39,42 @@
   @include media(lg-desk) {
     height: 65vh;
   }
+  &__flex-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-end;
+  }
 
   &__text-box {
-    @include center-center;
-    text-align: center;
+    margin-bottom: 10.3rem;
+
+    @include media(tab) {
+      margin-bottom: 11.8rem;
+    }
+    @include media(desk) {
+      margin-bottom: 13.3rem;
+    }
+    @include media(lg-desk) {
+      margin-bottom: 14.9rem;
+    }
   }
   &__link-box {
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    margin-bottom: 6rem;
+
+    @include media(tab) {
+      margin-bottom: 7rem;
+    }
+    @include media(desk) {
+      margin-bottom: 8rem;
+    }
+
+    @include media(lg-desk) {
+      margin-bottom: 9rem;
+    }
   }
 }
 
