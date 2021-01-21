@@ -1,9 +1,13 @@
 //HEADER Mainpage
+.navbar {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+  place-self: stretch;
+}
 
 .header {
-  color: $color-white;
   height: 75vh;
-  position: relative;
+  color: $color-white;
 
   background: linear-gradient(
       to right,
@@ -39,42 +43,27 @@
   @include media(lg-desk) {
     height: 65vh;
   }
-  &__flex-wrapper {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
+
+  &__grid-container {
     height: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    gap: 0px 0px;
+    justify-items: center;
     align-items: center;
-    justify-content: flex-end;
   }
 
   &__text-box {
-    margin-bottom: 10.3rem;
-
-    @include media(tab) {
-      margin-bottom: 11.8rem;
-    }
-    @include media(desk) {
-      margin-bottom: 13.3rem;
-    }
-    @include media(lg-desk) {
-      margin-bottom: 14.9rem;
-    }
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    text-align: center;
   }
+
   &__link-box {
-    margin-bottom: 6rem;
-
-    @include media(tab) {
-      margin-bottom: 7rem;
-    }
-    @include media(desk) {
-      margin-bottom: 8rem;
-    }
-
-    @include media(lg-desk) {
-      margin-bottom: 9rem;
-    }
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
   }
 }
 
