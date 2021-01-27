@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontakt</title>
+    <link rel="stylesheet" href="css/main.scss" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="navbar__logo">
+          <img
+            class="navbar__logo__svg navbar__logo__svg--black"
+            src="images/rustica-logo.svg"
+            alt=""
+          />
+        </div>
+
+        <input type="checkbox" class="navbar__checkbox" id="navi-toggle" />
+        <label for="navi-toggle" class="navbar__button">
+          <span
+            ><img
+              src="images/burger-menue-white.svg"
+              class="mobilnav__icon--black"
+              alt=""
+          /></span>
+        </label>
+
+        <label for="navi-toggle" class="navbar__close">
+          <span><img src="images/burger-close-white.svg" alt="" /></span>
+        </label>
+
+        <div class="navbar__content">
+          <ul class="navbar__ul">
+            <li class="navbar__li">
+              <a href="cafe.html" class="navbar__a navbar__a--black"
+                >das Café</a
+              >
+            </li>
+            <li class="navbar__li">
+              <a href="herkunft.html" class="navbar__a navbar__a--black"
+                >Herkunft</a
+              >
+            </li>
+            <li class="navbar__li">
+              <a href="#" class="navbar__a navbar__a--black">Shop</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <section class="white-sec">
+      <div class="contact-div"></div>
+      <h2 class="h2">
+        Du hast Fragen?<br />
+        Schreib uns gern!
+      </h2>
+
+      <form action="" class="contact-form">
+        <label for="name" class="contact-form__label">Name*</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          class="contact-form__input-line"
+          placeholder="Name"
+        />
+        <label for="email" class="contact-form__label">E-Mail*</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="contact-form__input-line"
+          placeholder="E-Mail"
+        />
+
+        <label for="phonenumber" class="contact-form__label"
+          >Telefonnummer</label
+        >
+        <input
+          type="text"
+          id="phonenumber"
+          name="phonenumber"
+          class="contact-form__input-line"
+          placeholder="Telefonnummer"
+        />
+        <div class="contact-form__label">PLATZHALTER DROPDOWN</div>
+        <label for="message" class="contact-form__label">Deine Nachricht</label>
+        <textarea
+          name="message"
+          id="message"
+          class="contact-form__input-area"
+          placeholder="Was hast du auf dem Herzen?"
+        ></textarea>
+        <div class="privacy-check u-margin-bottom-medium">
+          <input
+            type="checkbox"
+            id="privacy-check__checkbox"
+            name="privacy-check__checkbox"
+            class="privacy-check__checkbox"
+          />
+          <label for="privacy-check__checkbox" class="privacy-check__label">
+            <span>&nbsp;</span>
+          </label>
+
+          <span class="paragraph privacy-check__text"
+            >Ich aktzeptiere die Datenschutzerklärung</span
+          >
+        </div>
+        <div class="u-align-center">
+          <button type="submit" class="form-button">abschicken</button>
+        </div>
+      </form>
+    </section>
+  </body>
+  <include src="footer.html"></include>
+</html>

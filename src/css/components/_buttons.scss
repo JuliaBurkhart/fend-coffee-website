@@ -1,6 +1,7 @@
 .button-dark {
   &:link,
   &:visited {
+    cursor: pointer;
     display: inline-block;
     text-decoration: none;
     position: relative;
@@ -51,4 +52,53 @@
 
 .button-dark__border-white {
   border: 0.2rem solid $color-white !important;
+}
+
+.form-button {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  position: relative;
+  color: $color-white;
+  font-weight: 400;
+  font-style: normal;
+  font-size: $default-font-size;
+  line-height: $default-line-height;
+  padding: 1.5rem 5rem;
+  border: 0.2rem solid $color-anthrazit;
+  border-radius: 0.5rem;
+  background: linear-gradient(90deg, #3a3734 50%, $color-anthrazit 50%);
+  background-size: 300%;
+  background-position: 100%;
+  transition: all 0.5s;
+
+  &:focus {
+    border: 0.2rem solid $color-kraftpapier;
+  }
+
+  &:active {
+    background-color: $color-kraftpapier;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, $color-anthrazit 50%, #3a3734 50%);
+    background-size: 300%;
+    background-position: 100%;
+    transition: all 0.5s;
+  }
+
+  &:hover,
+  &::after {
+    background-position: 0;
+  }
 }
