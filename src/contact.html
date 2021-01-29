@@ -10,11 +10,13 @@
     <header>
       <div class="navbar">
         <div class="navbar__logo">
-          <img
-            class="navbar__logo__svg navbar__logo__svg--black"
-            src="images/rustica-logo.svg"
-            alt=""
-          />
+          <a href="index.html">
+            <img
+              class="navbar__logo__svg navbar__logo__svg--black"
+              src="images/rustica-logo.svg"
+              alt="Rustica Logo"
+            />
+          </a>
         </div>
 
         <input type="checkbox" class="navbar__checkbox" id="navi-toggle" />
@@ -66,6 +68,7 @@
           name="name"
           class="contact-form__input-line"
           placeholder="Name"
+          required
         />
         <label for="email" class="contact-form__label">E-Mail*</label>
         <input
@@ -74,6 +77,7 @@
           name="email"
           class="contact-form__input-line"
           placeholder="E-Mail"
+          required
         />
 
         <label for="phonenumber" class="contact-form__label"
@@ -86,7 +90,30 @@
           class="contact-form__input-line"
           placeholder="Telefonnummer"
         />
-        <div class="contact-form__label">PLATZHALTER DROPDOWN</div>
+
+        <div class="dropdown">
+          <div class="subject">
+            <span class="subject-text">Dein Betreff</span>
+            <button
+              type="button"
+              class="dropdown-button"
+              onclick="toggleDropdown()"
+            >
+              <img src="images/arrow-white.svg" alt="" />
+            </button>
+          </div>
+          <div class="dropdown-content">
+            <ul>
+              <li>Fragen zur Lieferung</li>
+              <li>Fragen zum Produkt</li>
+
+              <li>Vertriebsfragen</li>
+
+              <li>einfach nur so!</li>
+            </ul>
+          </div>
+        </div>
+
         <label for="message" class="contact-form__label">Deine Nachricht</label>
         <textarea
           name="message"
@@ -114,6 +141,14 @@
         </div>
       </form>
     </section>
+
+    <script>
+      function toggleDropdown() {
+        document
+          .querySelector(".dropdown-content")
+          .classList.toggle("show-dropdown-content");
+      }
+    </script>
   </body>
   <include src="footer.html"></include>
 </html>

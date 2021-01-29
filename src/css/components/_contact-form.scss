@@ -19,6 +19,20 @@
     &::placeholder {
       @include roboto-400(1.4);
       color: $color-medium-grey;
+      text-align: left;
+    }
+
+    &:focus {
+      background-color: $color-light-grey;
+    }
+
+    &:focus:invalid {
+      background-color: rgba($color-red, 0.3);
+      color: $color-red;
+
+      &::placeholder {
+        color: $color-red;
+      }
     }
   }
 
@@ -32,10 +46,65 @@
     &::placeholder {
       @include roboto-400(1.4);
       color: $color-medium-grey;
+      text-align: left;
     }
   }
 }
 
+//DROPDOWN MENÜ
+.dropdown {
+  padding-top: 4rem;
+}
+
+.subject {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 4.7rem;
+  background-color: $color-anthrazit;
+
+  border: 2px solid #1a1a1a;
+  border-radius: 5px;
+
+  &-text {
+    @include roboto-400(1.4);
+    color: $color-white;
+    padding: 1.4rem 0 1.4rem 2.5rem;
+  }
+}
+
+.dropdown-button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  width: 4.7rem;
+}
+
+.dropdown-content {
+  margin-top: 5px;
+  display: none;
+  @include roboto-400(1.4);
+  border: 2px solid #1a1a1a;
+  border-radius: 5px;
+  color: $color-anthrazit;
+
+  padding: 1.4rem 2.5rem;
+
+  & li {
+    list-style: none;
+    padding: 0.75rem 0;
+
+    &:focus {
+      background-color: $color-light-grey;
+    }
+  }
+}
+
+.show-dropdown-content {
+  display: block !important;
+}
+
+//DATENSCHUTZ CHECK
 .privacy-check {
   margin-top: 4rem;
   display: flex;
