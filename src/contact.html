@@ -54,92 +54,98 @@
     </header>
 
     <section class="white-sec">
-      <div class="contact-div"></div>
-      <h2 class="h2">
-        Du hast Fragen?<br />
-        Schreib uns gern!
-      </h2>
+      <div class="contact-div">
+        <div class="contact-div__heading">
+          <h2 class="h2">
+            Du hast Fragen?<br />
+            Schreib uns gern!
+          </h2>
+        </div>
+        <div class="contact-div__formular">
+          <form action="" class="contact-form">
+            <label for="name" class="contact-form__label">Name*</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="contact-form__input-line"
+              placeholder="Name"
+              required
+            />
+            <label for="email" class="contact-form__label">E-Mail*</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="contact-form__input-line"
+              placeholder="E-Mail"
+              required
+            />
 
-      <form action="" class="contact-form">
-        <label for="name" class="contact-form__label">Name*</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          class="contact-form__input-line"
-          placeholder="Name"
-          required
-        />
-        <label for="email" class="contact-form__label">E-Mail*</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          class="contact-form__input-line"
-          placeholder="E-Mail"
-          required
-        />
-
-        <label for="phonenumber" class="contact-form__label"
-          >Telefonnummer</label
-        >
-        <input
-          type="text"
-          id="phonenumber"
-          name="phonenumber"
-          class="contact-form__input-line"
-          placeholder="Telefonnummer"
-        />
-
-        <div class="dropdown">
-          <div class="subject">
-            <span class="subject-text">Dein Betreff</span>
-            <button
-              type="button"
-              class="dropdown-button"
-              onclick="toggleDropdown()"
+            <label for="phonenumber" class="contact-form__label"
+              >Telefonnummer</label
             >
-              <img src="images/arrow-white.svg" alt="" />
-            </button>
-          </div>
-          <div class="dropdown-content">
-            <ul>
-              <li>Fragen zur Lieferung</li>
-              <li>Fragen zum Produkt</li>
+            <input
+              type="text"
+              id="phonenumber"
+              name="phonenumber"
+              class="contact-form__input-line"
+              placeholder="Telefonnummer"
+            />
 
-              <li>Vertriebsfragen</li>
+            <div class="dropdown">
+              <div class="subject">
+                <span class="subject-text">Dein Betreff</span>
+                <button
+                  type="button"
+                  class="dropdown-button"
+                  onclick="toggleDropdown()"
+                >
+                  <img src="images/arrow-white.svg" alt="" />
+                </button>
+              </div>
+              <div class="dropdown-content">
+                <ul>
+                  <li>Fragen zur Lieferung</li>
+                  <li>Fragen zum Produkt</li>
 
-              <li>einfach nur so!</li>
-            </ul>
-          </div>
+                  <li>Vertriebsfragen</li>
+
+                  <li>einfach nur so!</li>
+                </ul>
+              </div>
+            </div>
+
+            <label for="message" class="contact-form__label"
+              >Deine Nachricht</label
+            >
+            <textarea
+              name="message"
+              id="message"
+              class="contact-form__input-area"
+              placeholder="Was hast du auf dem Herzen?"
+            ></textarea>
+            <div class="privacy-check u-margin-bottom-medium">
+              <input
+                type="checkbox"
+                id="privacy-check__checkbox"
+                name="privacy-check__checkbox"
+                class="privacy-check__checkbox"
+              />
+              <label for="privacy-check__checkbox" class="privacy-check__label">
+                <span>&nbsp;</span>
+              </label>
+
+              <span class="paragraph privacy-check__text"
+                >Ich aktzeptiere die Datenschutzerklärung</span
+              >
+            </div>
+            <div class="u-align-center">
+              <button type="submit" class="form-button">abschicken</button>
+            </div>
+          </form>
         </div>
-
-        <label for="message" class="contact-form__label">Deine Nachricht</label>
-        <textarea
-          name="message"
-          id="message"
-          class="contact-form__input-area"
-          placeholder="Was hast du auf dem Herzen?"
-        ></textarea>
-        <div class="privacy-check u-margin-bottom-medium">
-          <input
-            type="checkbox"
-            id="privacy-check__checkbox"
-            name="privacy-check__checkbox"
-            class="privacy-check__checkbox"
-          />
-          <label for="privacy-check__checkbox" class="privacy-check__label">
-            <span>&nbsp;</span>
-          </label>
-
-          <span class="paragraph privacy-check__text"
-            >Ich aktzeptiere die Datenschutzerklärung</span
-          >
-        </div>
-        <div class="u-align-center">
-          <button type="submit" class="form-button">abschicken</button>
-        </div>
-      </form>
+      </div>
     </section>
 
     <script>
