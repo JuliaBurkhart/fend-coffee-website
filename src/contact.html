@@ -62,7 +62,7 @@
           </h2>
         </div>
         <div class="contact-div__formular">
-          <form action="" class="contact-form">
+          <form action="" class="contact-form" name="contact-form">
             <label for="name" class="contact-form__label">Name*</label>
             <input
               type="text"
@@ -70,16 +70,14 @@
               name="name"
               class="contact-form__input-line"
               placeholder="Name"
-              required
             />
             <label for="email" class="contact-form__label">E-Mail*</label>
             <input
-              type="email"
+              type="text"
               id="email"
               name="email"
               class="contact-form__input-line"
               placeholder="E-Mail"
-              required
             />
 
             <label for="phonenumber" class="contact-form__label"
@@ -96,11 +94,7 @@
             <div class="dropdown">
               <div class="subject">
                 <span class="subject-text">Dein Betreff</span>
-                <button
-                  type="button"
-                  class="dropdown-button"
-                  onclick="toggleDropdown()"
-                >
+                <button type="button" class="dropdown-button">
                   <img src="images/arrow-white.svg" alt="" />
                 </button>
               </div>
@@ -148,13 +142,7 @@
       </div>
     </section>
 
-    <script>
-      function toggleDropdown() {
-        document
-          .querySelector(".dropdown-content")
-          .classList.toggle("show-dropdown-content");
-      }
-    </script>
+    <script src="js/contact-form.js"></script>
   </body>
   <include src="footer.html"></include>
 </html>

@@ -52,15 +52,6 @@
     &:focus {
       background-color: $color-light-grey;
     }
-
-    &:focus:invalid {
-      background-color: rgba($color-red, 0.3);
-      color: $color-red;
-
-      &::placeholder {
-        color: $color-red;
-      }
-    }
   }
 
   &__input-area {
@@ -77,6 +68,15 @@
       color: $color-medium-grey;
       text-align: left;
     }
+  }
+}
+
+.invalid-form {
+  background-color: rgba($color-red, 0.3);
+  color: $color-red;
+
+  &::placeholder {
+    color: $color-red;
   }
 }
 
@@ -190,4 +190,9 @@
   &::before {
     z-index: 1;
   }
+}
+
+.invalid-checkbox {
+  border: 2px solid $color-red;
+  background-color: rgba($color-red, 0.3);
 }
