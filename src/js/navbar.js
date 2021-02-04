@@ -17,11 +17,9 @@ burgerButton.addEventListener("click", toggleMobilnav);
 closeButton.addEventListener("click", toggleMobilnav);
 
 window.addEventListener("scroll", function (event) {
-  //   console.log("windowscrollY: " + window.scrollY);
-
   let scrollPosition = window.scrollY;
   console.log("scrollPosition: " + scrollPosition);
-  const header = document.body.querySelector(".header");
+  const header = document.body.querySelector("header");
   let headerEnd = header.scrollHeight - 14;
   console.log(headerEnd);
   if (scrollPosition > headerEnd) {

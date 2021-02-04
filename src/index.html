@@ -9,19 +9,15 @@
   <body>
     <header class="header">
       <div class="header__grid-container">
-        <include src="navbar.html"></include>
+        <include
+          src="navbar.html"
+          locals='{
+          "activeCafe": "",
+          "activeHerkunft": "",
+          "activeShop": ""
+      }'
+        ></include>
 
-      
-              </li>
-              <li class="navbar__li">
-                <a href="herkunft.html" class="navbar__a">Herkunft</a>
-              </li>
-              <li class="navbar__li">
-                <a href="contact.html" class="navbar__a">Shop</a>
-              </li>
-            </ul>
-          </div>
-        </div> -->
         <div class="header__text-box">
           <h1 class="h1">
             <span class="h1-main">Rustica</span>

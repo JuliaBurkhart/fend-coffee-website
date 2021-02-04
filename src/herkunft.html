@@ -8,46 +8,14 @@
   </head>
   <body>
     <header class="subpage__header header__herkunft">
-      <div class="navbar">
-        <div class="navbar__logo">
-          <a href="index.html">
-            <img
-              class="navbar__logo__svg"
-              src="images/rustica-logo.svg"
-              alt="Rustica Logo"
-            />
-          </a>
-        </div>
-
-        <input type="checkbox" class="navbar__checkbox" id="navi-toggle" />
-        <label for="navi-toggle" class="navbar__button">
-          <span class="mobilnav__icon"
-            ><img src="images/burger-menue-white.svg" alt=""
-          /></span>
-        </label>
-
-        <label for="navi-toggle" class="navbar__close">
-          <span class="mobilnav__icon"
-            ><img src="images/burger-close-white.svg" alt=""
-          /></span>
-        </label>
-
-        <div class="navbar__content">
-          <ul class="navbar__ul">
-            <li class="navbar__li">
-              <a href="cafe.html" class="navbar__a">das Café</a>
-            </li>
-            <li class="navbar__li">
-              <a href="herkunft.html" class="navbar__a navbar__onpage"
-                >Herkunft</a
-              >
-            </li>
-            <li class="navbar__li">
-              <a href="#" class="navbar__a">Shop</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <include
+        src="navbar.html"
+        locals='{
+        "activeCafe": "",
+        "activeHerkunft": " navbar__a__onpage",
+        "activeShop": ""
+    }'
+      ></include>
     </header>
 
     <section class="white-sec">
