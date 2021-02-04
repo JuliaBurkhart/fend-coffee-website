@@ -9,34 +9,9 @@
   <body>
     <header class="header">
       <div class="header__grid-container">
-        <div class="navbar">
-          <div class="navbar__logo">
-            <a href="index.html">
-              <img
-                class="navbar__logo__svg"
-                src="images/rustica-logo.svg"
-                alt="Rustica Logo"
-              />
-            </a>
-          </div>
+        <include src="navbar.html"></include>
 
-          <input type="checkbox" class="navbar__checkbox" id="navi-toggle" />
-          <label for="navi-toggle" class="navbar__button">
-            <span class="mobilnav__icon"
-              ><img src="images/burger-menue-white.svg" alt=""
-            /></span>
-          </label>
-
-          <label for="navi-toggle" class="navbar__close">
-            <span class="mobilnav__icon"
-              ><img src="images/burger-close-white.svg" alt=""
-            /></span>
-          </label>
-
-          <div class="navbar__content">
-            <ul class="navbar__ul">
-              <li class="navbar__li">
-                <a href="cafe.html" class="navbar__a">das Café</a>
+      
               </li>
               <li class="navbar__li">
                 <a href="herkunft.html" class="navbar__a">Herkunft</a>
@@ -46,7 +21,7 @@
               </li>
             </ul>
           </div>
-        </div>
+        </div> -->
         <div class="header__text-box">
           <h1 class="h1">
             <span class="h1-main">Rustica</span>
@@ -252,7 +227,6 @@
       </div>
     </section>
     <include src="map.html"></include>
-    <script src="js/navbar.js"></script>
   </body>
   <include src="footer.html"></include>
 </html>
