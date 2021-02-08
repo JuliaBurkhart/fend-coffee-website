@@ -10,8 +10,7 @@ function toggleMobilnav() {
   const mobilNav = document.body.querySelector(".navbar__mobilnav");
   mobilNav.classList.toggle("navbar__mobilnav-full");
   closeButton.classList.toggle("navbar__close-visible");
-  document.body.style.overflow = "hidden";
-  // console.log("Mobilnav Fullscreen Toggle");
+  document.body.toggleAttribute("overflow", hidden);
 }
 
 burgerButton.addEventListener("click", toggleMobilnav);
@@ -30,6 +29,7 @@ window.addEventListener("scroll", function (event) {
 
     navbarLinks.forEach(function (navbarLink) {
       navbarLink.classList.add("navbar__a--black");
+      
     });
   } else {
     navbarDiv.classList.remove("navbar--white-bg");
