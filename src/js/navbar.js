@@ -1,5 +1,5 @@
 // console.log("JS läuft!");
-
+const currentPageTitle = document.title;
 const navbarDiv = document.body.querySelector(".navbar");
 const burgerButton = document.body.querySelector(".navbar__burger");
 const closeButton = document.body.querySelector(".navbar__close");
@@ -10,7 +10,7 @@ function toggleMobilnav() {
   const mobilNav = document.body.querySelector(".navbar__mobilnav");
   mobilNav.classList.toggle("navbar__mobilnav-full");
   closeButton.classList.toggle("navbar__close-visible");
-  document.body.toggleAttribute("overflow", hidden);
+  document.body.toggleAttribute("overflow", "hidden");
 }
 
 burgerButton.addEventListener("click", toggleMobilnav);
@@ -29,7 +29,11 @@ window.addEventListener("scroll", function (event) {
 
     navbarLinks.forEach(function (navbarLink) {
       navbarLink.classList.add("navbar__a--black");
+
+      if (currentPageTitle.includes(navbarLink.innerHTML)) {
       
+        navbarLink.classList.add("navbar__a__onpage--black");
+      }
     });
   } else {
     navbarDiv.classList.remove("navbar--white-bg");
@@ -37,6 +41,10 @@ window.addEventListener("scroll", function (event) {
     burgerButton.classList.remove("navbar__burger--black");
     navbarLinks.forEach(function (navbarLink) {
       navbarLink.classList.remove("navbar__a--black");
+      if (currentPageTitle.includes(navbarLink.innerHTML)) {
+      
+        navbarLink.classList.remove("navbar__a__onpage--black");
+      }
     });
   }
 });
