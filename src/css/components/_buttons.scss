@@ -4,7 +4,6 @@
     cursor: pointer;
     display: inline-block;
     text-decoration: none;
-    //position: relative;
     color: $color-white;
     font-weight: 400;
     font-style: normal;
@@ -16,7 +15,7 @@
     background: linear-gradient(90deg, #3a3734 50%, $color-anthrazit 50%);
     background-size: 300%;
     background-position: 100%;
-    transition: all 0.5s;
+    transition: all 0.8s;
 
     &:focus {
       border: 0.2rem solid $color-kraftpapier;
@@ -26,25 +25,7 @@
       background-color: $color-kraftpapier;
     }
 
-    &::after {
-      content: "";
-      position: absolute;
-      display: inline-block;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      z-index: -1;
-      width: 0%;
-      height: 100%;
-      background: linear-gradient(90deg, $color-anthrazit 50%, #3a3734 50%);
-      background-size: 300%;
-      background-position: 100%;
-      transition: all 0.5s;
-    }
-
-    &:hover,
-    &::after {
+    &:hover {
       background-position: 0;
     }
   }

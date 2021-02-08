@@ -11,7 +11,7 @@ function toggleMobilnav() {
   mobilNav.classList.toggle("navbar__mobilnav-full");
   closeButton.classList.toggle("navbar__close-visible");
   document.body.style.overflow = "hidden";
-  console.log("Mobilnav Fullscreen Toggle");
+  // console.log("Mobilnav Fullscreen Toggle");
 }
 
 burgerButton.addEventListener("click", toggleMobilnav);
@@ -19,10 +19,10 @@ closeButton.addEventListener("click", toggleMobilnav);
 
 window.addEventListener("scroll", function (event) {
   let scrollPosition = window.scrollY;
-  console.log("scrollPosition: " + scrollPosition);
+  // console.log("scrollPosition: " + scrollPosition);
   const header = document.body.querySelector("header");
   let headerEnd = header.scrollHeight - 14;
-  console.log(headerEnd);
+  // console.log(headerEnd);
   if (scrollPosition > headerEnd) {
     navbarDiv.classList.add("navbar--white-bg");
     navbarLogo.classList.add("navbar__logo__svg--black");

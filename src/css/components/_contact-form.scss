@@ -98,6 +98,11 @@
 }
 
 //DROPDOWN MENÜ
+
+.dropdown {
+  padding-top: 4rem;
+}
+
 .select-drop {
   background: url("../images/arrow-white.svg"), $color-anthrazit;
   background-repeat: no-repeat;
@@ -123,57 +128,53 @@
 
 //HÜBSCHERE ATTRAPPE
 
-.dropdown {
-  padding-top: 4rem;
-}
+// .subject {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-between;
+//   height: 4.7rem;
+//   background-color: $color-anthrazit;
 
-.subject {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: 4.7rem;
-  background-color: $color-anthrazit;
+//   border: 2px solid #1a1a1a;
+//   border-radius: 5px;
 
-  border: 2px solid #1a1a1a;
-  border-radius: 5px;
+//   &-text {
+//     @include roboto-400(1.4);
+//     color: $color-white;
+//     padding: 1.4rem 0 1.4rem 2.5rem;
+//   }
+// }
 
-  &-text {
-    @include roboto-400(1.4);
-    color: $color-white;
-    padding: 1.4rem 0 1.4rem 2.5rem;
-  }
-}
+// .dropdown-button {
+//   background-color: transparent;
+//   cursor: pointer;
+//   border: none;
+//   width: 4.7rem;
+// }
 
-.dropdown-button {
-  background-color: transparent;
-  cursor: pointer;
-  border: none;
-  width: 4.7rem;
-}
+// .dropdown-content {
+//   margin-top: 5px;
+//   display: none;
+//   @include roboto-400(1.4);
+//   border: 2px solid #1a1a1a;
+//   border-radius: 5px;
+//   color: $color-anthrazit;
 
-.dropdown-content {
-  margin-top: 5px;
-  display: none;
-  @include roboto-400(1.4);
-  border: 2px solid #1a1a1a;
-  border-radius: 5px;
-  color: $color-anthrazit;
+//   padding: 1.4rem 2.5rem;
 
-  padding: 1.4rem 2.5rem;
+//   & li {
+//     list-style: none;
+//     padding: 0.75rem 0;
 
-  & li {
-    list-style: none;
-    padding: 0.75rem 0;
+//     &:focus {
+//       background-color: $color-light-grey;
+//     }
+//   }
+// }
 
-    &:focus {
-      background-color: $color-light-grey;
-    }
-  }
-}
-
-.show-dropdown-content {
-  display: block !important;
-}
+// .show-dropdown-content {
+//   display: block !important;
+// }
 
 //DATENSCHUTZ CHECK
 .privacy-check {
