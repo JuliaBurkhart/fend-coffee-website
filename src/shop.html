@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rustica - Shop</title>
+    <link rel="stylesheet" href="css/main.scss" />
+  </head>
+  <body>
+    <header>
+      <include src="navbar.html" 
+      locals='{
+      "activeCafe": "",
+      "activeHerkunft": "",
+      "activeShop": " navbar__a__onpage"
+  }'></include>
+    </header>
+    <body>
+        <section class="white-sec">
+            <h2 class="h2 u-margin-bottom-small">Entdecke unsere Kaffe Sorten</h2>
+       
+            <div class="types__flex-container">
+               
+              <include src="product-card.html" locals='{"iconColour": " types__icon--black"}'></include>
+              <include src="product-card.html" locals='{"iconColour": " types__icon--black"}'></include>
+              <include src="product-card.html" locals='{"iconColour": " types__icon--black"}'></include>
+              <include src="product-card.html" locals='{"iconColour": " types__icon--black"}'></include>
+              <include src="product-card.html" locals='{"iconColour": " types__icon--black"}'></include>
+              <include src="product-card.html" locals='{"iconColour": " types__icon--black"}'></include>
+              <include src="product-card.html" locals='{"iconColour": " types__icon--black"}'></include>
+              <include src="product-card.html" locals='{"iconColour": " types__icon--black"}'></include>
+
+                  
+              </div>
+       
+        </section>
+        <include src="map.html"></include>
+    </body>
+    <include src="footer.html"></include>
+    </html>
+    
