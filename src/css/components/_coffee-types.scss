@@ -1,63 +1,37 @@
 //SECTION types
 
+// Image-Slider für mobile Ansicht (eigene scss), ab Tablet Flex-Box.
+
 .types {
   background-color: $color-anthrazit;
   color: $color-white;
   @include default-sec-padding;
 
   &__flex-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-
-    @include media(desk) {
-      // flex-wrap: nowrap;
-    }
-  }
-
-  &__flex-item {
-    flex-grow: 1;
-    flex-shrink: 1;
-    max-width: calc(50% - 1.5rem);
-    margin: 2rem 0.75rem;
+    display: none; // Wird erst ab Tablet-Größe angezeigt weil vorher der Slider stattdessen zu sehen ist.
 
     @include media(tab) {
-      max-width: calc(33% - 1.5rem);
-    }
-
-    @include media(desk) {
-      max-width: calc(25% - 1.5rem);
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
     }
   }
+}
 
-  &__img {
-    width: 90%;
+// Alle product-cards die im flex-container sind, sollen diese Eigenschaften haben, aber nicht die product-cards im Slider:
+
+.types__flex-container > div {
+  flex-grow: 1;
+  flex-shrink: 1;
+  max-width: calc(50% - 1.5rem);
+  margin: 2rem 0.75rem;
+
+  @include media(tab) {
+    max-width: calc(33% - 1.5rem);
   }
 
-  &__img-box {
-    background-color: $color-light-grey;
-    text-align: center;
-  }
-
-  &__icon {
-    margin-top: 0.5rem;
-    margin-right: 0.8rem;
-    width: 1.2rem;
-    height: auto;
-
-    @include media(desk) {
-      margin-top: 0.8rem;
-      margin-right: 1rem;
-      width: 1.7rem;
-    }
-
-    &--white {
-      filter: brightness(700%) contrast(200%);
-    }
-
-    &--black {
-      filter: none;
-    }
+  @include media(desk) {
+    max-width: calc(25% - 1.5rem);
   }
 }

@@ -1,0 +1,18 @@
+.slider {
+  width: 600px;
+  margin: 0 auto 0 8rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &__container {
+    height: 300px;
+    display: flex;
+    transform: translate(0);
+    transition: transform 0.8s ease;
+  }
+
+  @include media(tab) {
+    display: none;
+  }
+}
