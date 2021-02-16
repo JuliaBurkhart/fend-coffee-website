@@ -1,18 +1,44 @@
 .slider {
-  width: 600px;
+  width: 100%;
   margin: 0 auto 0 8rem;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 
   &__container {
-    height: 300px;
+    width: auto;
     display: flex;
     transform: translate(0);
     transition: transform 0.8s ease;
   }
 
-  @include media(tab) {
+  @include media(desk) {
     display: none;
   }
+}
+
+.slider__container > div {
+  flex: 1 1 100%;
+}
+
+.slider__controls {
+  position: absolute;
+
+  display: flex;
+  flex-direction: row;
+  right: 0;
+  height: 300px;
+  width: 100vw;
+  z-index: 5;
+}
+
+.previous {
+  flex: 1 1 50%;
+  background-color: transparent;
+  border: none;
+}
+
+.next {
+  flex: 1 1 50%;
+  background-color: transparent;
+  border: none;
 }

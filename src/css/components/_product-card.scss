@@ -1,9 +1,9 @@
 .product-card {
-  border: red 1px solid;
   margin-right: 0.6rem;
   margin-left: 0.6rem;
   width: 100%;
-  max-width: 30rem;
+  max-width: 30rem !important;
+  min-width: 14rem;
   height: 100%;
   flex-basis: 100%;
   display: flex;
@@ -13,8 +13,8 @@
 
 .types {
   &__img {
-    width: 155px;
-    height: 208px;
+    width: 100%;
+    height: auto;
   }
 
   &__img-box {

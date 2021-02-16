@@ -8,30 +8,36 @@
   @include default-sec-padding;
 
   &__flex-container {
-    display: none; // Wird erst ab Tablet-Größe angezeigt weil vorher der Slider stattdessen zu sehen ist.
-
-    @include media(tab) {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-    }
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
   }
 }
 
+// Der normale Flex-Container wird erst ab Tablet-Größe angezeigt weil vorher der Slider stattdessen zu sehen ist. (aber nur auf der index Seite daher der Selector mit der Section)
+.types > .types__flex-container {
+  display: none;
+  @include media(desk) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
 // Alle product-cards die im flex-container sind, sollen diese Eigenschaften haben, aber nicht die product-cards im Slider:
 
 .types__flex-container > div {
   flex-grow: 1;
   flex-shrink: 1;
-  max-width: calc(50% - 1.5rem);
+  width: calc(50% - 1.5rem);
+  flex-basis: calc(50% - 1.5rem);
+  height: auto;
   margin: 2rem 0.75rem;
-
-  @include media(tab) {
-    max-width: calc(33% - 1.5rem);
-  }
 
   @include media(desk) {
     max-width: calc(25% - 1.5rem);
+    flex-basis: calc(25% - 1.5rem);
+    width: auto;
   }
 }
