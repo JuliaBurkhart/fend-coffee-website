@@ -18,6 +18,20 @@ const privacyCheckbox = document.getElementById("privacy-check__checkbox");
 const privacyLabel = document.querySelector(".privacy-check__label");
 
 
+// Checkbox soll auf Tastendruck gechecked werden können
+
+privacyLabel.addEventListener("keydown", function () {
+  switch(privacyLabel.getAttribute('aria-checked')) {
+    case "true":
+        privacyLabel.setAttribute('aria-checked', "false");
+        privacyCheckbox.checked = false;
+        break;
+    case "false":
+        privacyLabel.setAttribute('aria-checked', "true");
+        privacyCheckbox.checked = true;
+        break;
+}
+})
 
 // Evtl. Fehlermeldungen zurücksetzen
 
@@ -40,6 +54,8 @@ privacyCheckbox.addEventListener("change", function () {
     privacyLabel.classList.remove("invalid-checkbox");
   }
 })
+
+
 
 // Beim Senden den Inhalt des Formulars überprüfen
 
