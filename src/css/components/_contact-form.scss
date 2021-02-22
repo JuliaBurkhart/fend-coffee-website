@@ -104,34 +104,94 @@
   }
 }
 
-//DROPDOWN MENÜ
+// DROPDOWN MENÜ MIT JAVASCRIPT
 
 .dropdown {
   padding-top: 4rem;
 }
 
-.select-drop {
-  background: url("../images/arrow-white.svg"), $color-anthrazit;
-  background-repeat: no-repeat;
-  background-position: right;
-  background-size: 18px;
-  appearance: none;
-  @include roboto-400(1.4);
-  color: $color-white;
-  width: 100%;
+.dropdown-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   height: 4.7rem;
-  border-color: #1a1a1a;
-  border-width: 2px 10px 2px 10px;
-  border-style: solid;
+  background-color: $color-white;
+  border: 2px solid $color-anthrazit;
   border-radius: 5px;
-  padding: 1.4rem 0rem 1.4rem 1.5rem;
 
-  &__option {
-    background-color: $color-white;
-    color: $color-anthrazit;
-    padding: 7.5px 0;
+  &__text {
+    color: $color-black;
+    font-size: 14px;
+    padding: 1.4rem 0 1.4rem 2.5rem;
+    list-style: none;
+  }
+
+  &__button {
+    width: 4.8rem;
+    height: 100%;
+    background: url("../images/arrow-white.svg"), $color-anthrazit;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 18px;
+
+    list-style: none;
+    cursor: pointer;
+    padding: 1.4rem 2.5rem 1.4rem 0;
   }
 }
+
+.dropdown-content {
+  margin-top: 5px;
+  display: none;
+  border: 2px solid $color-anthrazit;
+  border-radius: 5px;
+  @include roboto-400(1.4);
+  padding: 1.4rem 0;
+
+  &__li {
+    list-style: none;
+    cursor: pointer;
+
+    padding: 0.75rem 2.5rem;
+
+    &:hover {
+      background-color: $color-light-grey;
+    }
+  }
+}
+
+.show-dropdown-content {
+  display: block !important;
+}
+
+//DROPDOWN MENÜ HTML
+
+// .dropdown {
+//   padding-top: 4rem;
+// }
+
+// .select-drop {
+//   background: url("../images/arrow-white.svg"), $color-anthrazit;
+//   background-repeat: no-repeat;
+//   background-position: right;
+//   background-size: 18px;
+//   appearance: none;
+//   @include roboto-400(1.4);
+//   color: $color-white;
+//   width: 100%;
+//   height: 4.7rem;
+//   border-color: #1a1a1a;
+//   border-width: 2px 10px 2px 10px;
+//   border-style: solid;
+//   border-radius: 5px;
+//   padding: 1.4rem 0rem 1.4rem 1.5rem;
+
+//   &__option {
+//     background-color: $color-white;
+//     color: $color-anthrazit;
+//     padding: 7.5px 0;
+//   }
+// }
 
 //HÜBSCHERE ATTRAPPE
 

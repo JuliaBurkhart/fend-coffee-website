@@ -60,25 +60,50 @@
               placeholder="Telefonnummer"
             />
 
-            <div class="dropdown">
-              <!-- <div class="subject">
-                <span class="subject-text">Dein Betreff</span>
-                <button type="button" class="dropdown-button">
-                  <img src="images/arrow-white.svg" alt="" />
-                </button>
-              </div>
-              <div class="dropdown-content">
-                <ul>
-                  <li>Fragen zur Lieferung</li>
-                  <li>Fragen zum Produkt</li>
+          
+              
 
-                  <li>Vertriebsfragen</li>
 
-                  <li>einfach nur so!</li>
+
+
+              <div class="dropdown">
+                <ul class="dropdown-bar">
+                  <li class="dropdown-bar__text" id="dropdown-label" tabindex="0">
+                  Wähle deinen Betreff aus:
+                  </li>
+                  <li
+                    class="dropdown-bar__button"
+                    id="dropdown__button"
+                    role="button"
+                    tabindex="0"
+                    aria-labelledby="dropdown-label"
+                  >
+                  &nbsp;
+                  </li>
                 </ul>
-              </div> -->
+          
+                <div class="dropdown-content" aria-expanded="false">
+                  <ul>
+                    <li class="dropdown-content__li" id="dropdown__li--1" tabindex="0">
+                      Fragen zur Lieferung
+                    </li>
+                    <li class="dropdown-content__li" id="dropdown__li--2" tabindex="0">
+                      Fragen zum Produkt
+                    </li>
+          
+                    <li class="dropdown-content__li" id="dropdown__li--3" tabindex="0">
+                      Vertriebsfragen
+                    </li>
+          
+                    <li class="dropdown-content__li" id="dropdown__li--4" tabindex="0">
+                      einfach nur so!
+                    </li>
+                  </ul>
+                </div>
+              </div>
 
-              <select class="select-drop">
+
+              <!-- <select class="select-drop">
                 <option>Dein Betreff</option>
                 <option class="select-drop__option">
                   Fragen zur Lieferung
@@ -87,8 +112,8 @@
                 <option class="select-drop__option">Vertriebsfragen</option>
 
                 <option class="select-drop__option">einfach nur so!</option>
-              </select>
-            </div>
+              </select> -->
+           
 
             <label for="message" class="contact-form__label paragraph"
               >Deine Nachricht</label
@@ -123,6 +148,7 @@
     </section>
 
     <script src="js/contact-form.js"></script>
+    <script src="js/dropdown.js"></script>
   </body>
   <include src="footer.html"></include>
 </html>
