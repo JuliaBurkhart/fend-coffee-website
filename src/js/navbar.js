@@ -19,11 +19,11 @@ closeButton.addEventListener("click", toggleMobilnav);
 
 
   const header = document.body.querySelector("header");
-  let headerEnd = header.scrollHeight - 14;
+  let headerEnd = header.scrollHeight - 24;
  
 
 
-if (header.scrollHeight <= 14) { navbarDiv.classList.add("navbar--white-bg");
+if (header.scrollHeight <= 24) { navbarDiv.classList.add("navbar--white-bg");
 navbarLogo.classList.add("navbar__logo__svg--black");
 burgerButton.classList.add("navbar__burger--black");
 

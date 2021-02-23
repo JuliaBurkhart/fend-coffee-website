@@ -1,4 +1,6 @@
 import products from "./products.json";
+import productImages from "../images/products/*.png";
+import productSvgs from "../images/*.svg";
 
 
 
@@ -20,7 +22,7 @@ ${products.map(function (product) {
   <div class="types__img-box u-margin-bottom-small">
     <img
       class="types__img"
-      src="images/coffee-costa-rica.png"
+      src="${productImages[product.image]}"
       alt="Verpackung der Kaffeesorte Costa Rica"
     />
   </div>
@@ -30,15 +32,15 @@ ${products.map(function (product) {
   <div class="types__icons">
     <img
       class="types__icon types__icon--black"
-      src="images/icon-kaffee-bohnen.svg"
+      src="${productSvgs[product.svg1]}"
     />
     <img
       class="types__icon types__icon--black"
-      src="images/icon-french-press.svg"
+      src="${productSvgs[product.svg2]}"
     />
     <img
       class="types__icon types__icon--black"
-      src="images/icon-kaffee-schaufel.svg"
+      src="${productSvgs[product.svg3]}"
     />
   </div>
 </div>
