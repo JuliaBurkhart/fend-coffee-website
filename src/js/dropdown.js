@@ -8,6 +8,7 @@ const DOWN_ARROW_KEY_CODE = 40;
 const UP_ARROW_KEY_CODE = 38;
 const ESCAPE_KEY_CODE = 27;
 
+const dropdownBar = document.querySelector(".dropdown-bar");
 const dropdownButton = document.querySelector(".dropdown-bar__button");
 const dropdownContent = document.querySelector(".dropdown-content");
 const contentItems = document.querySelectorAll(".dropdown-content__li");
@@ -23,12 +24,20 @@ contentItems.forEach((item) => listItemIds.push(item.id));
 function openDropdownContent() {
   dropdownContent.classList.add("show-dropdown-content");
   dropdownContent.setAttribute("aria-expanded", true);
+  dropdownButton.classList.add("dropdown-bar__button-rotate");
+  dropdownBar.classList.add("dropdown-bar--dark");
+  dropdownBarText.classList.add("dropdown-bar__text--white");
+  dropdownBarText.innerText = "Dein Betreff:";
 }
 
 // Close Dropdown Menü
 function closeDropdownContent() {
   dropdownContent.classList.remove("show-dropdown-content");
   dropdownContent.setAttribute("aria-expanded", false);
+  dropdownButton.classList.remove("dropdown-bar__button-rotate");
+  dropdownBar.classList.remove("dropdown-bar--dark");
+  dropdownBarText.classList.remove("dropdown-bar__text--white");
+  dropdownBarText.innerText = "Wähle einen Betreff aus";
 }
 
 // Einen Listenpunkt auswählen! Braucht als Input das Event, also welcher Listenpunkt geklickt wurde, um den Text des Listenpunktes auszulesen
