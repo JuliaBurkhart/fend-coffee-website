@@ -59,6 +59,14 @@
   line-height: 2.1rem;
   font-style: normal;
   font-weight: 400;
+
+  &#product-title {
+    position: relative;
+    cursor: pointer;
+    &:hover {
+      background-color: $color-light-grey;
+    }
+  }
 }
 
 //Footer
