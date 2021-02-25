@@ -1,0 +1,23 @@
+#cart {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 40rem; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 5.5rem;
+  right: 1rem;
+
+  bottom: 0;
+  background-color: red; /* Black background with opacity */
+  z-index: 2000; /* Specify a stack order in case you're using a different order for other elements */
+}
+
+.cart {
+  &__button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  &__svg {
+    filter: invert(100%);
+  }
+}

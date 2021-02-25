@@ -30,7 +30,7 @@ const productDetailView = `
      currentProduct.price
    }</p>
   
-  <p class="paragraph">Costa Rica Filterkaffee ist äußerst ergiebig und hat praktisch keine Säure. Den Gaumen umschmeichelt ein vollmundiges Haselnussaroma. Gleich probieren!</p>
+  <p class="paragraph">${currentProduct.teaser}</p>
 
   <div class="dropdown  u-margin-bottom-small">
                 <ul class="dropdown-bar">

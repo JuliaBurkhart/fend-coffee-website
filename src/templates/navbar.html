@@ -24,6 +24,15 @@
       <li class="navbar__li">
         <a href="shop.html" class="navbar__a{{ activeShop }}">Shop</a>
       </li>
+      <li class="navbar__li">
+        <button class="cart__button">
+          <img
+            class="cart__svg"
+            src="images/shopping-cart.svg"
+            alt="Warenkorb"
+          />
+        </button>
+      </li>
     </ul>
   </div>
 
@@ -45,6 +54,9 @@
       <li class="navbar__li">
         <a href="shop.html" class="navbar__a">Shop</a>
       </li>
+      <li class="navbar__li">
+        <span class="navbar__a cart__link">Warenkorb</span>
+      </li>
     </ul>
   </div>
 
@@ -53,4 +65,6 @@
     <img src="images/burger-close-white.svg" alt="" />
   </div>
 </div>
+<div id="cart"></div>
 <script src="js/navbar.js"></script>
+<script src="js/cart.js"></script>

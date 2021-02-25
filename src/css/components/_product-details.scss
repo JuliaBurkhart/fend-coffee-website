@@ -3,12 +3,16 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    @include media(tab) {
+    @include media(desk) {
       flex-direction: row;
     }
   }
   &__flex-item {
-    @include media(tab) {
+    flex: 1 1 100%;
+    max-width: 50rem;
+    margin: 0 auto;
+
+    @include media(desk) {
       flex: 1 1 50%;
       &:nth-child(2) {
         padding-left: 12rem;
@@ -41,11 +45,12 @@
 
   &__description {
     width: 100%;
-    @include media(tab) {
+    max-width: 50rem;
+    margin: 0 auto;
+    @include media(desk) {
       display: block;
       width: 50%;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto;
     }
   }
 }
