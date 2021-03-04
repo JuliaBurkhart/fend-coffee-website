@@ -1,5 +1,5 @@
 #cart {
-  display: block; /* Hidden by default */
+  display: none; /* Hidden by default */
   position: absolute;
   top: 0;
   left: 0;
@@ -11,7 +11,7 @@
   padding: 2.5rem;
   overflow: scroll;
 
-  @include media(desk) {
+  @include media(tab) {
     position: fixed; /* Sit on top of the page content */
 
     max-width: 40rem; /* Full width (cover the whole page) */
@@ -20,6 +20,7 @@
     right: 1rem;
     left: auto;
     bottom: 0;
+    box-shadow: 0 0 1em $color-light-grey;
   }
 }
 
@@ -47,6 +48,7 @@
   &__close {
     background-color: transparent;
     border: none;
+    cursor: pointer;
 
     &__div {
       text-align: right;
@@ -71,13 +73,14 @@
       "image quantity ."
       "image status ."
       "image price ."
-      "image . close"
+      "image . delete"
       "hr hr hr";
   }
 
   &__img {
     grid-area: image;
     width: 100%;
+    max-width: 20rem;
     background-color: $color-kraftpapier;
   }
 
@@ -97,9 +100,13 @@
   &__quantity {
     grid-area: quantity;
   }
-  &__item-close {
-    grid-area: close;
+  &__item-delete {
+    grid-area: delete;
     width: 13px;
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+    cursor: pointer;
   }
   &__hr {
     grid-area: hr;
@@ -107,5 +114,29 @@
     box-shadow: none;
     background-color: #e9e9e9;
     margin: 3rem 0;
+  }
+
+  &__order-overview {
+    &__container {
+      background-color: $color-anthrazit;
+      color: $color-white;
+      margin: 2.7rem -2.5rem;
+      padding: 5.1rem 2.6rem;
+    }
+    &__table-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-bottom: 2.5rem;
+
+      & > span {
+      }
+    }
+    &__hr {
+      border: 1px solid #e9e9e9;
+      box-shadow: none;
+
+      margin: 3rem 0;
+    }
   }
 }

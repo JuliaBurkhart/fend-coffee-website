@@ -12,6 +12,14 @@ const currentId = parseInt(urlParams.get("id"), 10);
 // Das entsprechende Object aus dem Array suchen
 const currentProduct = products.find((product) => product.id === currentId);
 
+// Die Varianten des einzelnen Produktes nach Preis sortieren
+const sortedVariants = currentProduct.variants.sort((variant1, variant2) => {
+  if (variant1.price > variant2.price) {
+    return 1;
+  }
+  return -1;
+});
+
 // Das ganze HTML für die Detail-Ansicht
 const productDetailView = `
 <div class="detail-page__flex-container">
@@ -26,9 +34,11 @@ const productDetailView = `
 </div>
  <div class="detail-page__flex-item">
    <h2 class="h2">${currentProduct.productName}</h2>
-   <p class="paragraph price u-margin-bottom-small u-margin-top-small">${
-     currentProduct.price
-   }</p>
+   <p class="paragraph price u-margin-bottom-small u-margin-top-small">${(
+     sortedVariants[0].price / 100
+   ).toFixed(2)}€ - ${(
+  sortedVariants[sortedVariants.length - 1].price / 100
+).toFixed(2)}€</p>
   
   <p class="paragraph">${currentProduct.teaser}</p>
 
@@ -68,7 +78,9 @@ const productDetailView = `
     </div>
 
 <div class="u-align-center">
-<button class="true-button">In den Warenkorb</button>
+<button class="true-button" data-product-id="${
+  currentProduct.id
+}">In den Warenkorb</button>
   </div>
   <div class="detail-page__icon-container u-margin-top-medium">
 <div class="detail-page__icon-box">
@@ -109,3 +121,34 @@ function createDetailPage() {
 }
 
 createDetailPage();
+
+// Was passiert bei klick auf den add-to-cart Button?
+
+function handleCartButtonClick() {
+  // rausfinden welches Produkt geklickt wurde und aus dem Array raussuchen
+  const chosenProductId = parseInt(this.dataset.productId, 10);
+
+  const chosenProduct = products.find(
+    (product) => product.id === chosenProductId
+  );
+
+  // den aktuellen Warenkorb-Inhalt aus dem local storage suchen
+  const currentCart = JSON.parse(localStorage.getItem("cart"));
+
+  // Produkt im Warenkorb im local storage speichern, wenn schon was im Warenkorb drin war,
+  // wird das neue Produkt ergänzt, ansonsten als erstes in den Warenkorb gepackt
+  if (currentCart !== null) {
+    const updatedCart = [...currentCart, chosenProduct];
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    location.reload();
+  } else {
+    localStorage.setItem("cart", JSON.stringify([chosenProduct]));
+    location.reload();
+  }
+}
+
+// EventListener für die add-to-cart Buttons
+const cartButtons = document.querySelectorAll(".true-button");
+cartButtons.forEach((cartButton) => {
+  cartButton.addEventListener("click", handleCartButtonClick);
+});
