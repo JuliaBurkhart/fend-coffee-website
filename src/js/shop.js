@@ -88,8 +88,6 @@ function handleCartButtonClick() {
   } else {
     const updatedCart = [...currentCart, chosenProduct];
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    console.log(updatedCart.length);
-
     cartCounterSpan.style.display = "block";
     cartCounterSpan.innerHTML = `${updatedCart.length}`;
     createShoppingCard();

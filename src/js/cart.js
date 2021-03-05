@@ -5,6 +5,7 @@ import productSvgs from "../images/*.svg";
 const cartContainer = document.getElementById("cart");
 const cartButton = document.querySelector(".cart__button");
 const cartLink = document.querySelector(".cart__link");
+const cartCounterSpan = document.querySelector(".cart__button__counter");
 
 // Warenkorb öffnen und schließen
 function toggleShoppingCart() {
@@ -123,7 +124,11 @@ function deleteThisItem() {
     .concat(currentCartItems.slice(i + 1, currentCartItems.length));
 
   localStorage.setItem("cart", JSON.stringify(filteredItems));
-
+  if (filteredItems.length === 0) {
+    cartCounterSpan.style.display = "none";
+  } else {
+    cartCounterSpan.innerHTML = `${filteredItems.length}`;
+  }
   createShoppingCard();
   calculatePrice();
 }
