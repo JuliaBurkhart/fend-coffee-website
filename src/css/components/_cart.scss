@@ -33,9 +33,23 @@
     align-items: center;
   }
   &__button {
+    position: relative;
     background-color: transparent;
     border: none;
     cursor: pointer;
+    &__counter {
+      display: none;
+      position: absolute;
+      top: 0;
+      right: -3px;
+      width: 14px;
+      height: 14px;
+      background-color: #006d7e;
+      border-radius: 100px;
+      color: $color-white;
+      font-size: 0.8rem;
+      line-height: 1.4rem;
+    }
   }
   &__svg {
     filter: invert(100%);

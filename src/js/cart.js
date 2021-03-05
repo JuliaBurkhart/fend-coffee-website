@@ -12,6 +12,7 @@ function toggleShoppingCart() {
     cartContainer.style.display = "none";
   } else {
     cartContainer.style.display = "block";
+    calculatePrice();
   }
 }
 
@@ -124,6 +125,7 @@ function deleteThisItem() {
   localStorage.setItem("cart", JSON.stringify(filteredItems));
 
   createShoppingCard();
+  calculatePrice();
 }
 
 function calculatePrice() {
@@ -150,3 +152,5 @@ function calculatePrice() {
 }
 
 calculatePrice();
+
+export default createShoppingCard;

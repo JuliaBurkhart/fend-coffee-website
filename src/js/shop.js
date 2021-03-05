@@ -1,6 +1,9 @@
 import products from "./products.json";
 import productImages from "../images/products/*.png";
 import productSvgs from "../images/*.svg";
+import createShoppingCard from "./cart";
+
+const cartCounterSpan = document.querySelector(".cart__button__counter");
 
 // Produkte aus der JSON auf die Shop-Seite packen
 
@@ -78,17 +81,30 @@ function handleCartButtonClick() {
 
   // Produkt im Warenkorb im local storage speichern, wenn schon was im Warenkorb drin war,
   // wird das neue Produkt ergänzt, ansonsten als erstes in den Warenkorb gepackt
-  if (currentCart !== null) {
-    // Wenn schon was im Warenkorb drin ist müsste man für jedes Element im Warenkorb checken ob das gewählte Produkt da schon drin ist und man dann nur die anzahl ändern müsste
+  if (currentCart === null) {
+    localStorage.setItem("cart", JSON.stringify([chosenProduct]));
+    cartCounterSpan.style.display = "block";
+    createShoppingCard();
+  } else {
     const updatedCart = [...currentCart, chosenProduct];
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    location.reload();
-  } else {
-    localStorage.setItem("cart", JSON.stringify([chosenProduct]));
-    location.reload();
+    console.log(updatedCart.length);
+
+    cartCounterSpan.style.display = "block";
+    cartCounterSpan.innerHTML = `${updatedCart.length}`;
+    createShoppingCard();
+
+    // currentCart.forEach((item) => {
+    //   if (item.id === chosenProductId) {
+    //     item.quantity += 1;
+    //     return item.quantity;
+    //   }
+    //   const updatedCart = [...currentCart, chosenProduct];
+    //   localStorage.setItem("cart", JSON.stringify(updatedCart));
+    //   location.reload();
+    // });
   }
 }
-
 // EventListener für die add-to-cart Buttons
 const cartButtons = document.querySelectorAll(".add-to-cart__button");
 cartButtons.forEach((cartButton) => {

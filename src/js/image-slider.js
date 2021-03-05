@@ -23,7 +23,7 @@ function createTypesCard(product) {
   <h4 class="h4" id="product-title"  data-product-id="${product.id}">${
     product.productName
   }</h4>
-  <p class="paragraph price">${product.price}</p>
+  <p class="paragraph price">${(product.price / 100).toFixed(2)}€</p>
   <div class="types__icons">
     <img
       class="types__icon types__icon--white"
