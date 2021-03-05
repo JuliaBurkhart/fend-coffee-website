@@ -94,3 +94,15 @@
     }
   }
 }
+
+.add-to-cart__button {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 102px;
+  height: 38px;
+  background-color: $color-white;
+  border: 2px solid $color-white;
+  border-radius: 5px;
+  cursor: pointer;
+}

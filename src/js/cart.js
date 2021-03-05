@@ -15,14 +15,15 @@ function toggleShoppingCart() {
   }
 }
 
-// den aktuellen Warenkorb-Inhalt aus dem local storage suchen
-const currentCartItems = JSON.parse(localStorage.getItem("cart"));
-
 cartButton.addEventListener("click", toggleShoppingCart);
 cartLink.addEventListener("click", toggleShoppingCart);
 
-// Grundgerüst für den Warenkorb
-const cartPageHtml = `
+function createShoppingCard() {
+  // den aktuellen Warenkorb-Inhalt aus dem local storage suchen
+  const currentCartItems = JSON.parse(localStorage.getItem("cart"));
+
+  // Grundgerüst für den Warenkorb
+  const cartPageHtml = `
 <div class="cart__close__div">
 <button class="cart__close">
     <img class="cart__close__svg" src="${productSvgs["burger-close-white"]}" alt="Warenkorb schließen" />
@@ -39,31 +40,31 @@ const cartPageHtml = `
 <h2 class="h2 u-margin-bottom-small">Bestellübersicht</h2>
 <div class="cart__order-overview__table-row">
 <span class="paragraph">Zwischensumme</span>
-<span class="paragraph">6,90 €</span>
+<span class="paragraph" id="sub-total"></span>
 </div>
 <div class="cart__order-overview__table-row">
 <span class="paragraph">Versandkosten</span>
-<span class="paragraph">3,90 €</span>   
+<span class="paragraph" id="shipping"></span>   
 </div>
 <hr class="cart__order-overview__hr">
 <div class="cart__order-overview__table-row">
 <span class="paragraph">Gesamtbetrag</span>
-<span class="paragraph">10,80 €</span>
+<span class="paragraph" id="total-amount"></span>
 </div>
 <div class="u-align-center">
 <button class="true-button--light">bezahlen</button>
   </div>
 </div>
 `;
-cartContainer.innerHTML = cartPageHtml;
+  cartContainer.innerHTML = cartPageHtml;
 
-// Button zum Schließen des Warenkorbs
-const cartCloseButton = document.querySelector(".cart__close");
-cartCloseButton.addEventListener("click", toggleShoppingCart);
+  // Button zum Schließen des Warenkorbs
+  const cartCloseButton = document.querySelector(".cart__close");
+  cartCloseButton.addEventListener("click", toggleShoppingCart);
 
-// Function erstellt Item-Einträge im Warenkorb
-function createItemEntryHtml(item) {
-  const itemInCart = `<div class="cart__item">
+  // Function erstellt Item-Einträge im Warenkorb
+  function createItemEntryHtml(item) {
+    const itemInCart = `<div class="cart__item">
 
   <img
        class="cart__img"
@@ -74,7 +75,7 @@ function createItemEntryHtml(item) {
      <div class="cart__item-title h3">${item.productName}</div>
      <div class="cart__quantity paragraph">Variante hier anzeigen</div>
      <div class="cart__status paragraph">Versandstatus</div>
-     <div class="cart__price h1-sub">${item.price}</div>
+     <div class="cart__price h1-sub">${(item.price / 100).toFixed(2)}€</div>
      
      
      <button class="cart__item-delete" data-item-id="${item.id}">
@@ -82,19 +83,32 @@ function createItemEntryHtml(item) {
      </button>
   <hr class="cart__hr">
   </div>`;
-  return itemInCart;
+    return itemInCart;
+  }
+
+  // Für jedes Item im Warenkorb (currentCartItems-Array) wird die
+  // function createItemEntry ausgeführt und dann alle Einträge in den Container gepackt
+
+  const allItemsInCart = currentCartItems.map(createItemEntryHtml).join("");
+  const cartFlexContainer = document.querySelector(".cart__flex-container");
+  cartFlexContainer.innerHTML = allItemsInCart;
+
+  // EventListener für alle "löschenButtons"
+
+  const deleteItemButtons = document.querySelectorAll(".cart__item-delete");
+  deleteItemButtons.forEach((deleteItemButton) => {
+    deleteItemButton.addEventListener("click", deleteThisItem);
+  });
 }
 
-// Für jedes Item im Warenkorb (currentCartItems-Array) wird die
-// function createItemEntry ausgeführt und dann alle Einträge in den Container gepackt
-
-const allItemsInCart = currentCartItems.map(createItemEntryHtml).join("");
-const cartFlexContainer = document.querySelector(".cart__flex-container");
-cartFlexContainer.innerHTML = allItemsInCart;
+createShoppingCard();
 
 // Function zum löschen eines Items aus dem Warenkorb
 
 function deleteThisItem() {
+  // den aktuellen Warenkorb-Inhalt aus dem local storage suchen
+  const currentCartItems = JSON.parse(localStorage.getItem("cart"));
+
   const idDeleteThisItem = parseInt(this.dataset.itemId, 10);
   const itemToDelete = currentCartItems.find(
     (currentCartItem) => currentCartItem.id === idDeleteThisItem
@@ -108,11 +122,31 @@ function deleteThisItem() {
     .concat(currentCartItems.slice(i + 1, currentCartItems.length));
 
   localStorage.setItem("cart", JSON.stringify(filteredItems));
-  location.reload();
-}
-// EventListener für alle "löschenButtons"
 
-const deleteItemButtons = document.querySelectorAll(".cart__item-delete");
-deleteItemButtons.forEach((deleteItemButton) => {
-  deleteItemButton.addEventListener("click", deleteThisItem);
-});
+  createShoppingCard();
+}
+
+function calculatePrice() {
+  // den aktuellen Warenkorb-Inhalt aus dem local storage suchen
+  const currentCartItems = JSON.parse(localStorage.getItem("cart"));
+  const allPricesArray = currentCartItems.map((item) => item.price);
+  let subTotal = 0;
+  for (let i = 0; i < allPricesArray.length; i++) {
+    subTotal += allPricesArray[i];
+  }
+
+  const shipping = 390;
+  const totalAmount = subTotal + shipping;
+
+  const subTotalFixed = (subTotal / 100).toFixed(2);
+  const totalAmountFixed = (totalAmount / 100).toFixed(2);
+
+  const subTotalSpan = document.getElementById("sub-total");
+  subTotalSpan.innerHTML = `${subTotalFixed}€`;
+  const shippingSpan = document.getElementById("shipping");
+  shippingSpan.innerHTML = `${(shipping / 100).toFixed(2)}€`;
+  const totalAmountSpan = document.getElementById("total-amount");
+  totalAmountSpan.innerHTML = `${totalAmountFixed}€`;
+}
+
+calculatePrice();

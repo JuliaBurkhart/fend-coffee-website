@@ -23,6 +23,9 @@ function createProductCard(product) {
     src="${productImages[product.image]}"
     alt="Verpackung der Kaffeesorte Costa Rica"
   />
+  <button class="add-to-cart__button" data-product-id="${
+    product.id
+  }">quick add +</button>
 </div>
 
 <h4 class="h4" id="product-title"  data-product-id="${
@@ -45,9 +48,8 @@ function createProductCard(product) {
     src="${productSvgs[product.svg3]}"
   />
 </div>
-<button class="add-to-cart__button" data-product-id="${
-    product.id
-  }">In den Warenkorb</button></div>
+
+  </div>
 </div>
   `;
   return cardHTML;

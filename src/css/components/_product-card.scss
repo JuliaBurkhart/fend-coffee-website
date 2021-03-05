@@ -15,11 +15,23 @@
   &__img {
     width: 100%;
     height: auto;
+    transition: all 0.3s;
   }
 
   &__img-box {
     background-color: $color-light-grey;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: $color-kraftpapier;
+      & > img {
+        transform: scale(1.2);
+        overflow: hidden;
+      }
+    }
   }
 
   &__icon {
