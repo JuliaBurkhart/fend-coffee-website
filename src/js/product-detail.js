@@ -1,6 +1,9 @@
 import products from "./products.json";
 import productImages from "../images/products/*.png";
 import productSvgs from "../images/*.svg";
+import createShoppingCard from "./cart";
+
+const cartCounterSpan = document.querySelector(".cart__button__counter");
 
 // Die URL auslesen
 const queryString = window.location.search;
@@ -137,13 +140,17 @@ function handleCartButtonClick() {
 
   // Produkt im Warenkorb im local storage speichern, wenn schon was im Warenkorb drin war,
   // wird das neue Produkt ergänzt, ansonsten als erstes in den Warenkorb gepackt
-  if (currentCart !== null) {
+
+  if (currentCart === null) {
+    localStorage.setItem("cart", JSON.stringify([chosenProduct]));
+    cartCounterSpan.style.display = "block";
+    createShoppingCard();
+  } else {
     const updatedCart = [...currentCart, chosenProduct];
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    location.reload();
-  } else {
-    localStorage.setItem("cart", JSON.stringify([chosenProduct]));
-    location.reload();
+    cartCounterSpan.style.display = "block";
+    cartCounterSpan.innerHTML = `${updatedCart.length}`;
+    createShoppingCard();
   }
 }
 

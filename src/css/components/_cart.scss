@@ -1,8 +1,5 @@
 #cart {
-  display: none; /* Hidden by default */
-  position: absolute;
-  top: 0;
-  left: 0;
+  display: block;
   width: 100%;
   height: auto;
   background-color: $color-white;
@@ -10,7 +7,8 @@
   z-index: 2000; /* Specify a stack order in case you're using a different order for other elements */
   padding: 2.5rem;
   overflow: scroll;
-
+  transform: translateX(110%);
+  transition: all 0.4s ease-in;
   @include media(tab) {
     position: fixed; /* Sit on top of the page content */
 
@@ -24,6 +22,10 @@
   }
 }
 
+.show-cart {
+  transform: translateX(0) !important;
+}
+
 .cart {
   &__head {
     display: flex;
@@ -31,6 +33,7 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 3rem;
   }
   &__button {
     position: relative;
@@ -114,6 +117,7 @@
   &__quantity {
     grid-area: quantity;
   }
+
   &__item-delete {
     grid-area: delete;
     width: 13px;

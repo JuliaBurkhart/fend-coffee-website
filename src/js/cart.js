@@ -1,161 +1,168 @@
-import productImages from "../images/products/*.png";
-import productSvgs from "../images/*.svg";
+// import productImages from "../images/products/*.png";
+// import productSvgs from "../images/*.svg";
 
-// Button und Link zum Warenkorb
-const cartContainer = document.getElementById("cart");
-const cartButton = document.querySelector(".cart__button");
-const cartLink = document.querySelector(".cart__link");
-const cartCounterSpan = document.querySelector(".cart__button__counter");
+// // Button und Link zum Warenkorb
+// const cartContainer = document.getElementById("cart");
+// const cartButton = document.querySelector(".cart__button");
+// const cartLink = document.querySelector(".cart__link");
+// const cartCounterSpan = document.querySelector(".cart__button__counter");
 
-// Warenkorb öffnen und schließen
-function toggleShoppingCart() {
-  if (cartContainer.style.display === "block") {
-    cartContainer.style.display = "none";
-  } else {
-    cartContainer.style.display = "block";
-    calculatePrice();
-  }
-}
+// // Warenkorb öffnen und schließen
+// function toggleShoppingCart() {
+//   if (cartContainer.style.display === "block") {
+//     cartContainer.style.display = "none";
+//   } else {
+//     cartContainer.style.display = "block";
+//   }
+// }
 
-cartButton.addEventListener("click", toggleShoppingCart);
-cartLink.addEventListener("click", toggleShoppingCart);
+// cartButton.addEventListener("click", toggleShoppingCart);
+// cartLink.addEventListener("click", toggleShoppingCart);
 
-function createShoppingCard() {
-  // den aktuellen Warenkorb-Inhalt aus dem local storage suchen
-  const currentCartItems = JSON.parse(localStorage.getItem("cart"));
+// /// ///////////////////////////////////////////////////////////////////////////////////////////////////
+// /// // WARENKORB ERSTELLEN
+// /// ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-  // Grundgerüst für den Warenkorb
-  const cartPageHtml = `
-<div class="cart__close__div">
-<button class="cart__close">
-    <img class="cart__close__svg" src="${productSvgs["burger-close-white"]}" alt="Warenkorb schließen" />
-  </button>
-  </div>
-  <div class="cart__head">
-<h3 class="h3">Warenkorb</h3><span class="paragraph">${currentCartItems.length} Produkte</span>
-</div>
-<div class="cart__added-successfully paragraph">1 Produkt wurde erfolgreich zum Warenkorb hinzugefügt</div>
-<div class="cart__flex-container">
-</div>
+// function createShoppingCard() {
+//   // den aktuellen Warenkorb-Inhalt aus dem local storage suchen
+//   const currentCartItems = JSON.parse(localStorage.getItem("cart"));
 
-<div class="cart__order-overview__container">
-<h2 class="h2 u-margin-bottom-small">Bestellübersicht</h2>
-<div class="cart__order-overview__table-row">
-<span class="paragraph">Zwischensumme</span>
-<span class="paragraph" id="sub-total"></span>
-</div>
-<div class="cart__order-overview__table-row">
-<span class="paragraph">Versandkosten</span>
-<span class="paragraph" id="shipping"></span>   
-</div>
-<hr class="cart__order-overview__hr">
-<div class="cart__order-overview__table-row">
-<span class="paragraph">Gesamtbetrag</span>
-<span class="paragraph" id="total-amount"></span>
-</div>
-<div class="u-align-center">
-<button class="true-button--light">bezahlen</button>
-  </div>
-</div>
-`;
-  cartContainer.innerHTML = cartPageHtml;
+//   // Grundgerüst für den Warenkorb
+//   const cartPageHtml = `
+// <div class="cart__close__div">
+// <button class="cart__close">
+//     <img class="cart__close__svg" src="${productSvgs["burger-close-white"]}" alt="Warenkorb schließen" />
+//   </button>
+//   </div>
+//   <div class="cart__head">
+// <h3 class="h3">Warenkorb</h3><span class="paragraph">${currentCartItems.length} Produkte</span>
+// </div>
+// <div class="cart__added-successfully paragraph">1 Produkt wurde erfolgreich zum Warenkorb hinzugefügt</div>
+// <div class="cart__flex-container">
+// </div>
 
-  // Button zum Schließen des Warenkorbs
-  const cartCloseButton = document.querySelector(".cart__close");
-  cartCloseButton.addEventListener("click", toggleShoppingCart);
+// <div class="cart__order-overview__container">
+// <h2 class="h2 u-margin-bottom-small">Bestellübersicht</h2>
+// <div class="cart__order-overview__table-row">
+// <span class="paragraph">Zwischensumme</span>
+// <span class="paragraph" id="sub-total"></span>
+// </div>
+// <div class="cart__order-overview__table-row">
+// <span class="paragraph">Versandkosten</span>
+// <span class="paragraph" id="shipping"></span>
+// </div>
+// <hr class="cart__order-overview__hr">
+// <div class="cart__order-overview__table-row">
+// <span class="paragraph">Gesamtbetrag</span>
+// <span class="paragraph" id="total-amount"></span>
+// </div>
+// <div class="u-align-center">
+// <button class="true-button--light">bezahlen</button>
+//   </div>
+// </div>
+// `;
+//   cartContainer.innerHTML = cartPageHtml;
 
-  // Function erstellt Item-Einträge im Warenkorb
-  function createItemEntryHtml(item) {
-    const itemInCart = `<div class="cart__item">
+//   // Button zum Schließen des Warenkorbs
+//   const cartCloseButton = document.querySelector(".cart__close");
+//   cartCloseButton.addEventListener("click", toggleShoppingCart);
 
-  <img
-       class="cart__img"
-       src="${productImages[item.image]}"
-       alt="Verpackung der Kaffeesorte Costa Rica"
-     />
+//   // Function erstellt Item-Einträge im Warenkorb
+//   function createItemEntryHtml(item) {
+//     const itemInCart = `<div class="cart__item">
 
-     <div class="cart__item-title h3">${item.productName}</div>
-     <div class="cart__quantity paragraph">Variante hier anzeigen</div>
-     <div class="cart__status paragraph">Versandstatus</div>
-     <div class="cart__price h1-sub">${(item.price / 100).toFixed(2)}€</div>
-     
-     
-     <button class="cart__item-delete" data-item-id="${item.id}">
-     <img class="cart__close__svg" src="${productSvgs["burger-close-white"]}">
-     </button>
-  <hr class="cart__hr">
-  </div>`;
-    return itemInCart;
-  }
+//   <img
+//        class="cart__img"
+//        src="${productImages[item.image]}"
+//        alt="Verpackung der Kaffeesorte Costa Rica"
+//      />
 
-  // Für jedes Item im Warenkorb (currentCartItems-Array) wird die
-  // function createItemEntry ausgeführt und dann alle Einträge in den Container gepackt
+//      <div class="cart__item-title h3">${item.productName}</div>
+//      <div class="cart__quantity paragraph">+ 1 -</div>
+//      <div class="cart__status paragraph">sofort versandbereit</div>
+//      <div class="cart__price h1-sub">${(item.price / 100).toFixed(2)}€</div>
 
-  const allItemsInCart = currentCartItems.map(createItemEntryHtml).join("");
-  const cartFlexContainer = document.querySelector(".cart__flex-container");
-  cartFlexContainer.innerHTML = allItemsInCart;
+//      <button class="cart__item-delete" data-item-id="${item.id}">
+//      <img class="cart__close__svg" src="${productSvgs["burger-close-white"]}">
+//      </button>
+//   <hr class="cart__hr">
+//   </div>`;
+//     return itemInCart;
+//   }
 
-  // EventListener für alle "löschenButtons"
+//   // Für jedes Item im Warenkorb (currentCartItems-Array) wird die
+//   // function createItemEntry ausgeführt und dann alle Einträge in den Container gepackt
 
-  const deleteItemButtons = document.querySelectorAll(".cart__item-delete");
-  deleteItemButtons.forEach((deleteItemButton) => {
-    deleteItemButton.addEventListener("click", deleteThisItem);
-  });
-}
+//   const allItemsInCart = currentCartItems.map(createItemEntryHtml).join("");
+//   const cartFlexContainer = document.querySelector(".cart__flex-container");
+//   cartFlexContainer.innerHTML = allItemsInCart;
 
-createShoppingCard();
+//   // EventListener für alle "löschenButtons"
 
-// Function zum löschen eines Items aus dem Warenkorb
+//   const deleteItemButtons = document.querySelectorAll(".cart__item-delete");
+//   deleteItemButtons.forEach((deleteItemButton) => {
+//     deleteItemButton.addEventListener("click", deleteThisItem);
+//   });
+//   calculatePrice();
+// }
 
-function deleteThisItem() {
-  // den aktuellen Warenkorb-Inhalt aus dem local storage suchen
-  const currentCartItems = JSON.parse(localStorage.getItem("cart"));
+// createShoppingCard();
 
-  const idDeleteThisItem = parseInt(this.dataset.itemId, 10);
-  const itemToDelete = currentCartItems.find(
-    (currentCartItem) => currentCartItem.id === idDeleteThisItem
-  );
+// /// ///////////////////////////////////////////////////////////////////////////////////////////////////
+// /// // LÖSCHEN AUS DEM WARENKORB
+// /// ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-  // i ist der Index im Array von dem Item das gelöscht werden soll
-  const i = currentCartItems.indexOf(itemToDelete);
+// // Function zum löschen eines Items aus dem Warenkorb
+// function deleteThisItem() {
+//   // den aktuellen Warenkorb-Inhalt aus dem local storage suchen
+//   const currentCartItems = JSON.parse(localStorage.getItem("cart"));
 
-  const filteredItems = currentCartItems
-    .slice(0, i)
-    .concat(currentCartItems.slice(i + 1, currentCartItems.length));
+//   const idDeleteThisItem = parseInt(this.dataset.itemId, 10);
+//   const itemToDelete = currentCartItems.find(
+//     (currentCartItem) => currentCartItem.id === idDeleteThisItem
+//   );
 
-  localStorage.setItem("cart", JSON.stringify(filteredItems));
-  if (filteredItems.length === 0) {
-    cartCounterSpan.style.display = "none";
-  } else {
-    cartCounterSpan.innerHTML = `${filteredItems.length}`;
-  }
-  createShoppingCard();
-  calculatePrice();
-}
+//   // i ist der Index im Array von dem Item das gelöscht werden soll
+//   const i = currentCartItems.indexOf(itemToDelete);
 
-function calculatePrice() {
-  // den aktuellen Warenkorb-Inhalt aus dem local storage suchen
-  const currentCartItems = JSON.parse(localStorage.getItem("cart"));
-  const allPricesArray = currentCartItems.map((item) => item.price);
-  let subTotal = 0;
-  for (let i = 0; i < allPricesArray.length; i++) {
-    subTotal += allPricesArray[i];
-  }
+//   const filteredItems = currentCartItems
+//     .slice(0, i)
+//     .concat(currentCartItems.slice(i + 1, currentCartItems.length));
 
-  const shipping = 390;
-  const totalAmount = subTotal + shipping;
+//   localStorage.setItem("cart", JSON.stringify(filteredItems));
+//   if (filteredItems.length === 0) {
+//     cartCounterSpan.style.display = "none";
+//   } else {
+//     cartCounterSpan.innerHTML = `${filteredItems.length}`;
+//   }
+//   createShoppingCard();
+// }
 
-  const subTotalFixed = (subTotal / 100).toFixed(2);
-  const totalAmountFixed = (totalAmount / 100).toFixed(2);
+// /// ///////////////////////////////////////////////////////////////////////////////////////////////////
+// /// // PREIS BERECHNEN UND ANZEIGEN
+// /// ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-  const subTotalSpan = document.getElementById("sub-total");
-  subTotalSpan.innerHTML = `${subTotalFixed}€`;
-  const shippingSpan = document.getElementById("shipping");
-  shippingSpan.innerHTML = `${(shipping / 100).toFixed(2)}€`;
-  const totalAmountSpan = document.getElementById("total-amount");
-  totalAmountSpan.innerHTML = `${totalAmountFixed}€`;
-}
+// function calculatePrice() {
+//   // den aktuellen Warenkorb-Inhalt aus dem local storage suchen
+//   const currentCartItems = JSON.parse(localStorage.getItem("cart"));
+//   const allPricesArray = currentCartItems.map((item) => item.price);
+//   let subTotal = 0;
+//   for (let i = 0; i < allPricesArray.length; i++) {
+//     subTotal += allPricesArray[i];
+//   }
 
-calculatePrice();
+//   const shipping = 390;
+//   const totalAmount = subTotal + shipping;
 
-export default createShoppingCard;
+//   const subTotalFixed = (subTotal / 100).toFixed(2);
+//   const totalAmountFixed = (totalAmount / 100).toFixed(2);
+
+//   const subTotalSpan = document.getElementById("sub-total");
+//   subTotalSpan.innerHTML = `${subTotalFixed}€`;
+//   const shippingSpan = document.getElementById("shipping");
+//   shippingSpan.innerHTML = `${(shipping / 100).toFixed(2)}€`;
+//   const totalAmountSpan = document.getElementById("total-amount");
+//   totalAmountSpan.innerHTML = `${totalAmountFixed}€`;
+// }
+
+// export default createShoppingCard;

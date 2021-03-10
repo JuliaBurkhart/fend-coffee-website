@@ -105,4 +105,10 @@
   border: 2px solid $color-white;
   border-radius: 5px;
   cursor: pointer;
+  transform: translateX(110%);
+  transition: all 0.3s;
+}
+
+.product-card:hover .add-to-cart__button {
+  transform: translateX(0);
 }
