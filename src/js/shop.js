@@ -192,6 +192,13 @@ function shop() {
     // den aktuellen Warenkorb-Inhalt aus dem local storage suchen
     const currentCartItems = JSON.parse(localStorage.getItem("cart"));
 
+    let productsTotal = 0;
+    currentCartItems.forEach((currentCartItem) => {
+      productsTotal += currentCartItem.amount;
+    });
+    console.log(`productsTotal: ${productsTotal}`);
+    cartCounterSpan.innerHTML = `${productsTotal}`;
+
     // Grundgerüst für den Warenkorb
     const cartPageHtml = `
 <div class="cart__close__div">
@@ -200,7 +207,7 @@ function shop() {
   </button>
   </div>
   <div class="cart__head">
-<h3 class="h3">Warenkorb</h3><span class="paragraph">${currentCartItems.length} Produkte</span>
+<h3 class="h3">Warenkorb</h3><span class="paragraph">${productsTotal} Produkte</span>
 </div>
 <div class="cart__added-successfully paragraph">1 Produkt wurde erfolgreich zum Warenkorb hinzugefügt</div>
 <div class="cart__flex-container">
@@ -234,7 +241,6 @@ function shop() {
 
     // Function erstellt Item-Einträge im Warenkorb
     function createItemEntryHtml(item) {
-      console.log(item.amount);
       const itemInCart = `<div class="cart__item">
 
   <img
@@ -353,7 +359,9 @@ function shop() {
   function calculatePrice() {
     // den aktuellen Warenkorb-Inhalt aus dem local storage suchen
     const currentCartItems = JSON.parse(localStorage.getItem("cart"));
-    const allPricesArray = currentCartItems.map((item) => item.price);
+    const allPricesArray = currentCartItems.map(
+      (item) => item.price * item.amount
+    );
     let subTotal = 0;
     for (let i = 0; i < allPricesArray.length; i++) {
       subTotal += allPricesArray[i];
