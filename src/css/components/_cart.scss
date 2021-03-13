@@ -157,4 +157,15 @@
       margin: 3rem 0;
     }
   }
+
+  &__plus {
+    cursor: pointer;
+    padding: 0.5rem;
+    font-weight: 700 !important;
+  }
+  &__minus {
+    cursor: pointer;
+    padding: 0.5rem;
+    font-weight: 700 !important;
+  }
 }

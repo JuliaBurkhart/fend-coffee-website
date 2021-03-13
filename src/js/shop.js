@@ -19,7 +19,9 @@ function shop() {
 
   function checkLocalStorage() {
     const currentCart = JSON.parse(localStorage.getItem("cart"));
-    if (currentCart.length === 0) {
+    if (currentCart === null) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    } else if (currentCart.length === 0) {
       cartCounterSpan.style.display = "none";
     } else {
       cart = currentCart;
@@ -232,6 +234,7 @@ function shop() {
 
     // Function erstellt Item-Einträge im Warenkorb
     function createItemEntryHtml(item) {
+      console.log(item.amount);
       const itemInCart = `<div class="cart__item">
 
   <img
@@ -241,7 +244,12 @@ function shop() {
      />
 
      <div class="cart__item-title h3">${item.productName}</div>
-     <div class="cart__quantity paragraph">+ 1 -</div>
+     <div class="cart__quantity paragraph">
+     <span class="cart__minus" data-item-id="${item.id}"><</span>
+     ${item.amount}
+     <span class="cart__plus" data-item-id="${item.id}">></span>
+    
+     </div>
      <div class="cart__status paragraph">sofort versandbereit</div>
      <div class="cart__price h1-sub">${(item.price / 100).toFixed(2)}€</div>
      
@@ -265,8 +273,43 @@ function shop() {
 
     const deleteItemButtons = document.querySelectorAll(".cart__item-delete");
     deleteItemButtons.forEach((deleteItemButton) => {
-      deleteItemButton.addEventListener("click", deleteThisItem);
+      deleteItemButton.addEventListener("click", function () {
+        const thisId = parseInt(this.dataset.itemId, 10);
+        deleteThisItem(thisId);
+      });
     });
+
+    // EventListener für Plus und Minus-Tasten
+    const itemPlusAll = document.querySelectorAll(".cart__plus");
+    itemPlusAll.forEach((itemPlus) => {
+      itemPlus.addEventListener("click", function () {
+        const thisId = parseInt(this.dataset.itemId, 10);
+        const thisItem = currentCartItems.find(
+          (currentCartItem) => currentCartItem.id === thisId
+        );
+        thisItem.amount += 1;
+        localStorage.setItem("cart", JSON.stringify(currentCartItems));
+        createShoppingCard();
+      });
+    });
+
+    const itemMinusAll = document.querySelectorAll(".cart__minus");
+    itemMinusAll.forEach((itemMinus) => {
+      itemMinus.addEventListener("click", function () {
+        const thisId = parseInt(this.dataset.itemId, 10);
+        const thisItem = currentCartItems.find(
+          (currentCartItem) => currentCartItem.id === thisId
+        );
+        if (thisItem.amount > 1) {
+          thisItem.amount -= 1;
+          localStorage.setItem("cart", JSON.stringify(currentCartItems));
+          createShoppingCard();
+        } else {
+          deleteThisItem(thisId);
+        }
+      });
+    });
+
     calculatePrice();
   }
 
@@ -277,11 +320,11 @@ function shop() {
   /// ///////////////////////////////////////////////////////////////////////////////////////////////////
 
   // Function zum löschen eines Items aus dem Warenkorb
-  function deleteThisItem() {
+  function deleteThisItem(idDeleteThisItem) {
     // den aktuellen Warenkorb-Inhalt aus dem local storage suchen
     const currentCartItems = JSON.parse(localStorage.getItem("cart"));
 
-    const idDeleteThisItem = parseInt(this.dataset.itemId, 10);
+    // const idDeleteThisItem = parseInt(this.dataset.itemId, 10);
     const itemToDelete = currentCartItems.find(
       (currentCartItem) => currentCartItem.id === idDeleteThisItem
     );
