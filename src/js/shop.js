@@ -25,9 +25,14 @@ function shop() {
       cartCounterSpan.style.display = "none";
     } else {
       cart = currentCart;
+
+      let productsTotal = 0;
+      cart.forEach((cartItem) => {
+        productsTotal += cartItem.amount;
+      });
+      console.log(`productsTotal: ${productsTotal}`);
       cartCounterSpan.style.display = "block";
-      cartCounterSpan.innerHTML = `${cart.length}`;
-      // hier muss noch die amount eingebaut werden, die soll mit berechnet sein
+      cartCounterSpan.innerHTML = `${productsTotal}`;
     }
   }
   checkLocalStorage();
@@ -79,7 +84,7 @@ function shop() {
   }">quick add +</button>
 </div>
 
-<h4 class="h4" id="product-title"  data-product-id="${
+<h4 class="h4" id="product-title" data-product-id="${
       product.id
     }"><a href=${url}>${product.productName}</a></h4>
 <p class="paragraph price">${(sortedVariants[0].price / 100).toFixed(2)}€ - ${(
@@ -137,50 +142,36 @@ function shop() {
     // den aktuellen Warenkorb-Inhalt aus dem local storage suchen
     const currentCart = JSON.parse(localStorage.getItem("cart"));
 
-    // Produkt im Warenkorb im local storage speichern, wenn schon was im Warenkorb drin war,
-    // wird das neue Produkt ergänzt, ansonsten als erstes in den Warenkorb gepackt
-    const addedSuccessfullyDiv = document.querySelector(
-      ".cart__added-successfully"
-    );
-    console.log(addedSuccessfullyDiv);
-
-    if (currentCart === null) {
-      localStorage.setItem("cart", JSON.stringify(cart));
-      // localStorage.setItem("cart", JSON.stringify([chosenProduct]));
-
-      cartCounterSpan.style.display = "block";
-      createShoppingCard();
-
-      toggleShoppingCart();
-    } else {
-      // const updatedCart = [...currentCart, chosenProduct];
-      // localStorage.setItem("cart", JSON.stringify(updatedCart));
-      localStorage.setItem("cart", JSON.stringify(cart));
-      cartCounterSpan.style.display = "block";
-
-      cartCounterSpan.innerHTML = `${cart.length}`;
-      // hier muss noch die amount eingebaut werden, die soll mit berechnet sein
-      createShoppingCard();
-      toggleShoppingCart();
-      addedSuccessfullyDiv.style.display = "block";
-    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    cartCounterSpan.style.display = "block";
+    createShoppingCard();
+    toggleShoppingCart();
   }
-  // Add-to-cart Buttons
+
+  /// ///////////////////////////////////////////////////////////////////////////////////////////////////
+  /// // ADD TO CART BUTTONS
+  /// ///////////////////////////////////////////////////////////////////////////////////////////////////
   /// // für jeden Button wird geprüft ob das Produkt schon im Warenkorb ist. Wenn ja wird der Text geändert
   /// // und der Button aus geschaltet
   /// // wenn nicht, bekommt der Button einen EventListener
+  function createAddToCartButtons() {
+    const cartButtons = document.querySelectorAll(".add-to-cart__button");
 
-  const cartButtons = document.querySelectorAll(".add-to-cart__button");
-  cartButtons.forEach((cartButton) => {
-    const buttonId = cartButton.dataset.productId;
-    const inCart = cart.find((item) => item.id === buttonId);
-    if (inCart) {
-      cartButton.innerText = "In Cart";
-      cartButton.disabled = true;
-    } else {
-      cartButton.addEventListener("click", handleCartButtonClick);
-    }
-  });
+    cartButtons.forEach((cartButton) => {
+      const buttonId = parseInt(cartButton.dataset.productId, 10);
+      const inCart = cart.find((item) => item.id === buttonId);
+
+      if (inCart) {
+        cartButton.innerText = "In Cart";
+        cartButton.disabled = true;
+      } else {
+        cartButton.innerText = "add to cart +";
+        cartButton.disabled = false;
+        cartButton.addEventListener("click", handleCartButtonClick);
+      }
+    });
+  }
+  createAddToCartButtons();
 
   /// ///////////////////////////////////////////////////////////////////////////////////////////////////
   /// // WARENKORB ERSTELLEN
@@ -192,6 +183,7 @@ function shop() {
     // den aktuellen Warenkorb-Inhalt aus dem local storage suchen
     const currentCartItems = JSON.parse(localStorage.getItem("cart"));
 
+    // berechnet die Gesamtanzahlt der Produkte im Warenkorb
     let productsTotal = 0;
     currentCartItems.forEach((currentCartItem) => {
       productsTotal += currentCartItem.amount;
@@ -350,6 +342,7 @@ function shop() {
       cartCounterSpan.innerHTML = `${filteredItems.length}`;
     }
     createShoppingCard();
+    createAddToCartButtons();
   }
 
   /// ///////////////////////////////////////////////////////////////////////////////////////////////////

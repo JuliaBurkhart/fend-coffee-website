@@ -1,10 +1,29 @@
 import products from "./products.json";
 import productImages from "../images/products/*.png";
 import productSvgs from "../images/*.svg";
-import createShoppingCard from "./cart";
+import shop from "./shop";
 
 const cartCounterSpan = document.querySelector(".cart__button__counter");
+let cart = [];
 
+function checkLocalStorage() {
+  const currentCart = JSON.parse(localStorage.getItem("cart"));
+  if (currentCart === null) {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  } else if (currentCart.length === 0) {
+    cartCounterSpan.style.display = "none";
+  } else {
+    cart = currentCart;
+
+    let productsTotal = 0;
+    cart.forEach((cartItem) => {
+      productsTotal += cartItem.amount;
+    });
+    cartCounterSpan.style.display = "block";
+    cartCounterSpan.innerHTML = `${productsTotal}`;
+  }
+}
+checkLocalStorage();
 // Die URL auslesen
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -124,38 +143,31 @@ function createDetailPage() {
 }
 
 createDetailPage();
+const cartButton = document.querySelector(".true-button");
+// gucken ob das Produkt schon im Warenkorb ist
+const findProduct = cart.find((cartItem) => cartItem.id === currentId);
+if (findProduct) {
+  cartButton.innerText = "Im Warenkorb";
+  cartButton.disabled = true;
+}
 
 // Was passiert bei klick auf den add-to-cart Button?
 
-function handleCartButtonClick() {
+function handleCartButtonClick(event) {
+  event.target.innerText = "Im Warenkorb";
+  event.target.disabled = true;
   // rausfinden welches Produkt geklickt wurde und aus dem Array raussuchen
   const chosenProductId = parseInt(this.dataset.productId, 10);
 
-  const chosenProduct = products.find(
+  const findProductInProducts = products.find(
     (product) => product.id === chosenProductId
   );
+  const chosenProduct = { ...findProductInProducts, amount: 1 };
+  cart.push(chosenProduct);
+  localStorage.setItem("cart", JSON.stringify(cart));
 
-  // den aktuellen Warenkorb-Inhalt aus dem local storage suchen
-  const currentCart = JSON.parse(localStorage.getItem("cart"));
-
-  // Produkt im Warenkorb im local storage speichern, wenn schon was im Warenkorb drin war,
-  // wird das neue Produkt ergänzt, ansonsten als erstes in den Warenkorb gepackt
-
-  if (currentCart === null) {
-    localStorage.setItem("cart", JSON.stringify([chosenProduct]));
-    cartCounterSpan.style.display = "block";
-    createShoppingCard();
-  } else {
-    const updatedCart = [...currentCart, chosenProduct];
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-    cartCounterSpan.style.display = "block";
-    cartCounterSpan.innerHTML = `${updatedCart.length}`;
-    createShoppingCard();
-  }
+  shop();
 }
 
-// EventListener für die add-to-cart Buttons
-const cartButtons = document.querySelectorAll(".true-button");
-cartButtons.forEach((cartButton) => {
-  cartButton.addEventListener("click", handleCartButtonClick);
-});
+// EventListener für den Button
+cartButton.addEventListener("click", handleCartButtonClick);
