@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-use-before-define */
+
 import products from "./products.json";
 import productImages from "../images/products/*.png";
 import productSvgs from "../images/*.svg";
@@ -8,6 +11,8 @@ function shop() {
   const cartContainer = document.getElementById("cart");
   const cartButton = document.querySelector(".cart__button");
   const cartLink = document.querySelector(".cart__link");
+  const mobilNav = document.querySelector(".navbar__mobilnav");
+  const navbarClose = document.querySelector(".navbar__close");
   // Zähler für die Items
   const cartCounterSpan = document.querySelector(".cart__button__counter");
   // Array mit Warenkorbinhalt
@@ -30,7 +35,6 @@ function shop() {
       cart.forEach((cartItem) => {
         productsTotal += cartItem.amount;
       });
-      console.log(`productsTotal: ${productsTotal}`);
       cartCounterSpan.style.display = "block";
       cartCounterSpan.innerHTML = `${productsTotal}`;
     }
@@ -47,6 +51,8 @@ function shop() {
       cartContainer.classList.remove("show-cart");
     } else {
       cartContainer.classList.add("show-cart");
+      mobilNav.classList.remove("navbar__mobilnav-full");
+      navbarClose.classList.remove("navbar__close-visible");
       createShoppingCard();
     }
   }
@@ -138,7 +144,6 @@ function shop() {
     const chosenProduct = { ...findProduct, amount: 1 };
     // add product to cart-Array
     cart = [...cart, chosenProduct];
-    console.log(cart);
     // den aktuellen Warenkorb-Inhalt aus dem local storage suchen
     const currentCart = JSON.parse(localStorage.getItem("cart"));
 
@@ -155,19 +160,19 @@ function shop() {
   /// // und der Button aus geschaltet
   /// // wenn nicht, bekommt der Button einen EventListener
   function createAddToCartButtons() {
-    const cartButtons = document.querySelectorAll(".add-to-cart__button");
+    const addCartButtons = document.querySelectorAll(".add-to-cart__button");
 
-    cartButtons.forEach((cartButton) => {
+    addCartButtons.forEach((addCartButton) => {
       const buttonId = parseInt(cartButton.dataset.productId, 10);
       const inCart = cart.find((item) => item.id === buttonId);
 
       if (inCart) {
-        cartButton.innerText = "In Cart";
-        cartButton.disabled = true;
+        addCartButton.innerText = "In Cart";
+        addCartButton.disabled = true;
       } else {
-        cartButton.innerText = "add to cart +";
-        cartButton.disabled = false;
-        cartButton.addEventListener("click", handleCartButtonClick);
+        addCartButton.innerText = "add to cart +";
+        addCartButton.disabled = false;
+        addCartButton.addEventListener("click", handleCartButtonClick);
       }
     });
   }

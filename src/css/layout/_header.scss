@@ -2,7 +2,9 @@
 
 .header {
   height: 75vh;
+  width: 100vw;
   color: $color-white;
+  overflow: hidden;
 
   background: linear-gradient(
       to right,
@@ -55,11 +57,12 @@
   }
 
   &__text-box {
+    padding-top: 50px;
     text-align: center;
   }
 
   &__link-box {
-    padding-top: 300px;
+    padding-top: 150px;
     @include media(tab) {
       padding-top: 180px;
       }
