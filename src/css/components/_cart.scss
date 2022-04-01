@@ -81,7 +81,7 @@
   }
   &__item {
     display: grid;
-    grid-template-columns: 50% calc(50%-13px) 13px;
+    grid-template-columns: 50% calc(50% - 13px) 13px;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 61px;
     gap: 0px 17px;
     grid-template-areas:

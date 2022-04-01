@@ -35,12 +35,14 @@
   }
 
   &__icon-box {
+    height: 80px;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
   }
 
   &__icon {
+    height: 100%;
   }
 
   &__description {
